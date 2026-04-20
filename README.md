@@ -6,8 +6,9 @@ Static single-page site for **DTM (Dynamic Trajectory Memory)** — the public-f
 
 | What | URL |
 |------|-----|
+| **GitHub username** | janusadmin |
 | **Live site (GitHub Pages)** | https://janusadmin.github.io/janus-site/ |
-| **Source repository** | https://github.com/Janusadmin/janus-site |
+| **Source repository** | https://github.com/janusadmin/janus-site |
 
 The deployed site follows this repo’s `index.html` (DTM positioning). If you add a custom domain, update this table and any hosting settings (for example a `CNAME` file for GitHub Pages).
 
