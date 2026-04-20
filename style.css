@@ -1,5 +1,5 @@
 /* ============================================
-   JANUS AI — Site Styles
+   DTM — Site Styles
    Professional. Restrained. Governance-grade.
    ============================================ */
 
@@ -154,6 +154,11 @@ body {
   color: var(--color-text);
 }
 
+.section-heading--problem {
+  line-height: 1.35;
+  max-width: 36rem;
+}
+
 .section-lede {
   font-size: 1.0625rem;
   color: var(--color-text-mid);
@@ -170,6 +175,15 @@ body {
   letter-spacing: -0.03em;
   margin-bottom: var(--spacing-sm);
   color: var(--color-text);
+}
+
+.opening-name-sub {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  letter-spacing: 0.02em;
+  margin-top: -0.5rem;
+  margin-bottom: var(--spacing-md);
 }
 
 .opening-thesis {
@@ -327,8 +341,12 @@ body {
 
 .model-step {
   flex: 1;
+  min-width: 0;
   text-align: center;
-  padding: 1.25rem 0.75rem;
+  padding: 1.25rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .step-number {
@@ -353,9 +371,11 @@ body {
 }
 
 .model-step p {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.5;
+  line-height: 1.55;
+  max-width: 28ch;
+  flex-grow: 1;
 }
 
 .model-connector {
@@ -374,7 +394,28 @@ body {
 }
 
 
-/* ---------- 6. Build Status ---------- */
+/* ---------- 6. Build Status / Evidence ---------- */
+
+.greenfield-proof {
+  max-width: 640px;
+  margin-bottom: var(--spacing-md);
+}
+
+.greenfield-proof h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.greenfield-proof p {
+  color: var(--color-text-mid);
+  margin-bottom: var(--spacing-sm);
+}
+
+.greenfield-proof p:last-child {
+  margin-bottom: 0;
+}
 
 .status-grid {
   display: grid;
@@ -470,6 +511,12 @@ body {
   text-decoration: underline;
 }
 
+.contact-placeholder {
+  color: var(--color-text-light);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
 
 /* ---------- Footer ---------- */
 
@@ -480,8 +527,16 @@ body {
 
 .site-footer p {
   font-size: 0.8125rem;
-  color: var(--color-text-light);
+  color: var(--color-text-mid);
   text-align: center;
+  line-height: 1.6;
+}
+
+.footer-motto {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--color-text-light);
+  font-size: 0.75rem;
 }
 
 
@@ -522,8 +577,17 @@ body {
     font-size: 1.75rem;
   }
 
+  .opening-name-sub {
+    font-size: 0.9375rem;
+    margin-top: -0.25rem;
+  }
+
   .opening-thesis {
     font-size: 1.0625rem;
+  }
+
+  .section-heading--problem {
+    font-size: 1.25rem;
   }
 
   /* System Overview */
@@ -544,10 +608,30 @@ body {
 
   .model-step {
     text-align: left;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 1rem;
+    row-gap: 0.25rem;
+    align-items: start;
     padding: 0.75rem 0;
+  }
+
+  .model-step .step-number {
+    grid-row: 1 / 3;
+    align-self: start;
+  }
+
+  .model-step h3 {
+    grid-column: 2;
+    margin-bottom: 0;
+  }
+
+  .model-step p {
+    grid-column: 2;
+    max-width: none;
+    text-align: left;
+    font-size: 0.8125rem;
   }
 
   .step-number {
