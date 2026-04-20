@@ -12,6 +12,9 @@
 </head>
 <body>
 
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
   <nav class="site-nav" aria-label="Primary">
     <div class="nav-inner">
       <a href="#opening-statement" class="nav-logo">DTM</a>
@@ -33,6 +36,9 @@
 
   <main>
 
+    <!-- ============================================
+         1. OPENING STATEMENT
+         ============================================ -->
     <section id="opening-statement" class="section section--opening">
       <div class="container">
         <h1 class="opening-name">DTM</h1>
@@ -55,6 +61,9 @@
     </section>
 
 
+    <!-- ============================================
+         2. PROBLEM CONTEXT
+         ============================================ -->
     <section id="problem-context" class="section">
       <div class="container">
         <h2 class="section-heading section-heading--problem">We automated production.<br>We did not automate validation.</h2>
@@ -76,12 +85,18 @@
             <h3>The bottleneck has moved downstream.</h3>
             <p>
               Before AI, the bottleneck was creation. That slowness masked unclear
-              goals and misaligned workflows. After AI, that constraint is gone.
-              The familiar pattern: as agent-assisted output rises, review load and
-              change-set size often grow in parallel rather than shrinking. We accelerated
-              production. We overwhelmed validation.
-              The limiting factor is no longer how fast we can produce work —
+              goals and misaligned workflows. After AI, first drafts arrive in seconds —
+              and the pain is familiar to anyone who has shipped real work: it feels
+              brilliant in the room, then thin under inspection. Good enough for a
+              brainstorm or a slide; not good enough to own on its own. Someone still has
+              to re-read, re-test, and sign off — and that someone is now on the hook for
+              a larger pile of “almost done” than ever. We accelerated production. We did
+              not automate the part that turns output into something you would stake a
+              career on. The limiting factor is no longer how fast we can produce work —
               it is how fast we can prove it is correct.
+            </p>
+            <p class="problem-citation-placeholder" role="note">
+              Primary sources for aggregate benchmarks on this shift: forthcoming.
             </p>
           </div>
 
@@ -103,6 +118,9 @@
     </section>
 
 
+    <!-- ============================================
+         3. SYSTEM OVERVIEW
+         ============================================ -->
     <section id="system-overview" class="section section--alt">
       <div class="container">
         <h2 class="section-heading">Three layers. One thesis.</h2>
@@ -151,6 +169,9 @@
     </section>
 
 
+    <!-- ============================================
+         4. CORE PRINCIPLES
+         ============================================ -->
     <section id="core-principles" class="section">
       <div class="container">
         <h2 class="section-heading">Core Principles</h2>
@@ -198,6 +219,9 @@
     </section>
 
 
+    <!-- ============================================
+         5. OPERATING MODEL
+         ============================================ -->
     <section id="operating-model" class="section section--model">
       <div class="container">
         <h2 class="section-heading">The Arbiter Ritual</h2>
@@ -285,6 +309,9 @@
     </section>
 
 
+    <!-- ============================================
+         6. CURRENT BUILD STATUS / EVIDENCE
+         ============================================ -->
     <section id="build-status" class="section section--alt">
       <div class="container">
         <h2 class="section-heading">The Evidence</h2>
@@ -292,18 +319,35 @@
         <div class="greenfield-proof">
           <h3>Janus was built by Janus.</h3>
           <p>
-            Before Janus DTM OS was a product, it was an experiment.
-            We ran what we call the Greenfield Project — a controlled test
-            in which we decomposed an entire system into governed workflow cards.
-            Each card was hardened through an early version of the Arbiter ritual.
-            No card moved forward until intent was ratified.
+            We started with 220,000 lines of vibe-driven code — a system that
+            was wrong at minimum 30% of the time. Rather than patch it, we
+            tested the thesis: could governed cards produce a clean system
+            from scratch?
           </p>
           <p>
-            Parallel teams of third-party cloud agents implemented against
-            those hardened cards. The system itself discarded what it did not need.
-            Chat was removed as non-essential. Governance grew from what remained.
-            Janus DTM OS is the direct product of that experiment.
-            The Git stamps are there.
+            We decomposed the entire target system into workflow cards. Each
+            card was hardened through an early version of the Arbiter ritual
+            using a team of commercial LLMs (ChatGPT 4→4.5, Claude Sonnet 3.5→4.6)
+            as parallel reviewers. No card moved forward until intent was ratified.
+          </p>
+          <p>
+            Implementation was handed to GitHub cloud agents, Cursor cloud agents,
+            and local IDE agents for P0 cards. The workflow: read the system rules,
+            read the card, implement, submit PR, review, merge into main.
+          </p>
+          <p>
+            Preliminary results: the system was implementation-complete on first
+            pass. Primary gap was frontend wiring — the highest planning complexity
+            and the least hardened cards. The frontend was subsequently wired using
+            the same system in three hours. Estimated first-pass completion with
+            proper blueprints: ~95%.
+          </p>
+          <p>
+            The system discarded what it did not need. Chat was removed as
+            non-essential. Governance grew from what remained. This experiment
+            also catalyzed the nano agent philosophy: tight jobs, narrow scope,
+            hand off through the assembly line. Janus DTM OS is the direct
+            product of that experiment. The Git stamps are there.
           </p>
         </div>
 
@@ -358,6 +402,9 @@
     </section>
 
 
+    <!-- ============================================
+         7. FOUNDER PERSPECTIVE
+         ============================================ -->
     <section id="founder" class="section">
       <div class="container">
         <h2 class="section-heading">Founder</h2>
@@ -365,7 +412,8 @@
         <div class="founder-content">
           <p>
             Jesse Binstock. 23 years of institutional leadership — athletic
-            departments, printing operations, noncredit technical certification.
+            departments, printing operations, technical certification.
+            Most recently responsible for technical certification at Dawson College.
             I developed one transferable skill above all others: keeping content
             experts honest without being a content expert. That teaches you to
             see architecture. Why the pieces fit. Where the handoffs break.
@@ -379,11 +427,12 @@
             every session, and humans setting fuzzy intent without realizing it.
           </p>
           <p>
-            The Greenfield Project was the proof. We ran the governance experiment
-            on ourselves. The system told us what it needed to be. Chat was
-            discarded. Governance remained. Janus DTM OS is what emerged —
-            not designed top-down, but discovered by running the ritual until
-            the structure revealed itself.
+            Janus began as a concept in 2023. The first white paper was
+            timestamped in 2024. Real build work began in summer 2025.
+            By November 2025 the Greenfield experiment was complete —
+            we ran the governance ritual on the system itself, and Janus
+            DTM OS emerged from what remained. Not designed top-down.
+            Discovered by running the ritual until the structure revealed itself.
           </p>
           <p>
             The organizations that build deterministic governance around their
@@ -395,6 +444,9 @@
     </section>
 
 
+    <!-- ============================================
+         8. CONTACT
+         ============================================ -->
     <section id="contact" class="section section--contact">
       <div class="container">
         <h2 class="section-heading">Next Step</h2>
@@ -421,6 +473,9 @@
   </main>
 
 
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
   <footer class="site-footer">
     <div class="container">
       <p>

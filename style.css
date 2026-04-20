@@ -260,6 +260,15 @@ body {
   max-width: 640px;
 }
 
+.problem-citation-placeholder {
+  margin-top: var(--spacing-sm);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-light);
+  font-style: italic;
+  max-width: 640px;
+}
+
 
 /* ---------- 3. System Overview ---------- */
 
