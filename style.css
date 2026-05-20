@@ -550,6 +550,339 @@ body {
 
 
 /* ============================================
+   MULTI-PAGE STYLES
+   ============================================ */
+
+/* ---------- Nav active state ---------- */
+
+.nav-link--active {
+  color: var(--color-text) !important;
+  font-weight: 600;
+}
+
+
+/* ---------- Landing Hero ---------- */
+
+.section--landing-hero {
+  padding-top: calc(var(--nav-height) + 6rem);
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+.landing-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.landing-heading {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+}
+
+.landing-sub {
+  font-size: 1.0625rem;
+  color: var(--color-text-mid);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+
+/* ---------- Page Cards ---------- */
+
+.section--page-cards {
+  padding-top: 2rem;
+  padding-bottom: var(--spacing-section);
+}
+
+.page-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.page-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.page-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(59, 89, 152, 0.08);
+  transform: translateY(-2px);
+}
+
+.page-card-inner {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+}
+
+.page-card-num {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+.page-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 0.625rem;
+}
+
+.page-card-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-mid);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.page-card-cta {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+
+/* ---------- Sub-page Hero ---------- */
+
+.section--subpage-hero {
+  padding-top: calc(var(--nav-height) + 4rem);
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.subpage-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.subpage-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.subpage-lede {
+  font-size: 1.0625rem;
+  color: var(--color-text-mid);
+  max-width: 560px;
+}
+
+
+/* ---------- Prose ---------- */
+
+.prose {
+  max-width: 640px;
+}
+
+.prose--wide {
+  max-width: 720px;
+}
+
+.prose p,
+.prose--wide p {
+  font-size: 1.0625rem;
+  color: var(--color-text-mid);
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.prose p:last-child,
+.prose--wide p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-emphasis {
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  color: var(--color-text) !important;
+}
+
+
+/* ---------- Feature List ---------- */
+
+.feature-list {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.feature {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.5rem;
+  color: var(--color-accent);
+  font-size: 8px;
+}
+
+.feature-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.feature-body p {
+  font-size: 0.9375rem;
+  color: var(--color-text-mid);
+  line-height: 1.65;
+}
+
+.feature-target {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border-light);
+  max-width: 720px;
+}
+
+
+/* ---------- Product CTAs ---------- */
+
+.product-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+/* ---------- Roadmap ---------- */
+
+.roadmap-list {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.roadmap-item {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+.roadmap-item:not(:last-child) .roadmap-marker::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 16px;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border-light);
+}
+
+.roadmap-marker {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  margin-top: 0.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.roadmap-item--active .roadmap-marker {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.roadmap-body {
+  flex: 1;
+}
+
+.roadmap-phase {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-light);
+  margin-bottom: 0.375rem;
+}
+
+.roadmap-item--active .roadmap-phase {
+  color: var(--color-accent);
+}
+
+.roadmap-body h2 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.375rem;
+}
+
+.roadmap-body p {
+  font-size: 0.9375rem;
+  color: var(--color-text-mid);
+  line-height: 1.65;
+}
+
+
+/* ---------- Footer ---------- */
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-nav a {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--color-accent);
+}
+
+
+/* ============================================
    RESPONSIVE — MOBILE (<768px)
    ============================================ */
 
@@ -579,6 +912,31 @@ body {
 
   .nav-links--open {
     display: flex;
+  }
+
+  /* Page cards */
+  .page-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .page-card-inner {
+    min-height: auto;
+  }
+
+  /* Landing hero */
+  .landing-heading {
+    font-size: 1.875rem;
+  }
+
+  /* Footer */
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Roadmap */
+  .roadmap-item:not(:last-child) .roadmap-marker::after {
+    left: 7px;
   }
 
   /* Opening */

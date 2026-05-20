@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Janus DTM OS — AI workflow governance. Gated, audited, and remembered.">
+  <title>Janus DTM OS — DTM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">DTM</a>
+      <ul class="nav-links">
+        <li><a href="company.html">Company</a></li>
+        <li><a href="product.html" class="nav-link--active">Product</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="section section--subpage-hero">
+      <div class="container">
+        <p class="subpage-eyebrow">Product</p>
+        <h1 class="subpage-title">Janus DTM OS</h1>
+        <p class="subpage-lede">Your workflows. Gated, audited, and governed — without replacement.</p>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section">
+      <div class="container">
+        <div class="prose prose--wide">
+          <p>AI systems are fast, and the future of work. They're also opaque. They drift, hallucinate, and make decisions nobody can trace. When something goes wrong, nobody knows why. Or when it started.</p>
+          <p class="prose-emphasis">Janus fixes that.</p>
+          <p>You bring your workflow. We install it, gate it, and run it. When something matters — when an action is risky, irreversible, or outside defined bounds — Janus stops and surfaces it to the operator. The operator decides. Janus remembers, the system sustains.</p>
+          <p>Every decision is logged. Every override is audited. Every workflow runs the same way every time, until a human says otherwise.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you get -->
+    <section class="section section--alt">
+      <div class="container">
+        <h2 class="section-heading">What you get</h2>
+        <div class="feature-list">
+
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">&#9632;</div>
+            <div class="feature-body">
+              <h3>Full workflow visibility</h3>
+              <p>A Kanban that shows you what's running, what's blocked, and why. At a glance.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">&#9632;</div>
+            <div class="feature-body">
+              <h3>Grounded chat interface</h3>
+              <p>A chat interface grounded in your workflow's history, not a generic AI assistant.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">&#9632;</div>
+            <div class="feature-body">
+              <h3>Institutional memory</h3>
+              <p>Captures the why behind every decision so your team never makes the same mistake twice.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">&#9632;</div>
+            <div class="feature-body">
+              <h3>Governance gates</h3>
+              <p>Stops the workflow before bad output reaches anyone downstream.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="feature-target">Built for operations leaders who are done guessing what their AI is doing.</p>
+      </div>
+    </section>
+
+    <!-- CTAs -->
+    <section class="section">
+      <div class="container">
+        <div class="product-ctas">
+          <a href="#" class="btn btn--primary">Watch the demo</a>
+          <a href="#" class="btn btn--secondary">See screenshots</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Dynamic Trajectory Memory. All rights reserved.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="company.html">Company</a>
+        <a href="product.html">Product</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var links = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', function() {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        links.classList.toggle('nav-links--open');
+      });
+      links.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          toggle.setAttribute('aria-expanded', 'false');
+          links.classList.remove('nav-links--open');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
