@@ -7,61 +7,56 @@
   <title>Roadmap — DTM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">DTM</a>
-      <ul class="nav-links">
-        <li><a href="company.html">Company</a></li>
-        <li><a href="product.html">Product</a></li>
-        <li><a href="roadmap.html" class="nav-link--active">Roadmap</a></li>
-      </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <nav>
+    <div class="nav-left"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
+    <ul class="nav-links">
+      <li><a href="company.html">Company</a></li>
+      <li><a href="product.html">Product</a></li>
+      <li><a href="roadmap.html" class="nav-link--active">Roadmap</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <main>
 
-    <section class="section section--subpage-hero">
-      <div class="container">
-        <p class="subpage-eyebrow">Roadmap</p>
-        <h1 class="subpage-title">What's coming</h1>
-        <p class="subpage-lede">We're heads down. More detail here soon.</p>
+    <section class="subpage-hero">
+      <div class="wrap">
+        <p class="eyebrow">Roadmap</p>
+        <h1>What's coming</h1>
+        <p class="hero-sub">We're heads down. More detail here soon.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
+    <section class="sec">
+      <div class="wrap">
         <div class="roadmap-list">
 
           <div class="roadmap-item roadmap-item--active">
-            <div class="roadmap-marker"></div>
+            <div class="roadmap-phase">Now</div>
             <div class="roadmap-body">
-              <span class="roadmap-phase">Now</span>
               <h2>Private Beta</h2>
               <p>Janus DTM OS deployed with pilot partners. Governance gates, Kanban view, and audit log live.</p>
             </div>
           </div>
 
           <div class="roadmap-item">
-            <div class="roadmap-marker"></div>
+            <div class="roadmap-phase">Next</div>
             <div class="roadmap-body">
-              <span class="roadmap-phase">Next</span>
               <h2>Integrations</h2>
               <p>Native connectors for common workflow platforms. Bring Janus governance to where your work already lives.</p>
             </div>
           </div>
 
           <div class="roadmap-item">
-            <div class="roadmap-marker"></div>
+            <div class="roadmap-phase">Later</div>
             <div class="roadmap-body">
-              <span class="roadmap-phase">Later</span>
               <h2>Institutional Memory API</h2>
               <p>Programmatic access to your organisation's decision history. Query the why, not just the what.</p>
             </div>
@@ -73,15 +68,13 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2026 Dynamic Trajectory Memory. All rights reserved.</p>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="company.html">Company</a>
-        <a href="product.html">Product</a>
-        <a href="roadmap.html">Roadmap</a>
-      </nav>
-    </div>
+  <footer>
+    <div class="footer-l">DTM — Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 &middot; Ottawa, ON</span></div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="company.html">Company</a>
+      <a href="product.html">Product</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
   </footer>
 
   <script>

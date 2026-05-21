@@ -3,117 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Janus DTM OS — AI workflow governance. Gated, audited, and remembered.">
-  <title>Janus DTM OS — DTM</title>
+  <meta name="description" content="Janus DTM OS — Governed institutional memory for human-agent organizations.">
+  <title>Product — DTM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">DTM</a>
-      <ul class="nav-links">
-        <li><a href="company.html">Company</a></li>
-        <li><a href="product.html" class="nav-link--active">Product</a></li>
-        <li><a href="roadmap.html">Roadmap</a></li>
-      </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <nav>
+    <div class="nav-left"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
+    <ul class="nav-links">
+      <li><a href="company.html">Company</a></li>
+      <li><a href="product.html" class="nav-link--active">Product</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <main>
 
-    <!-- Hero -->
-    <section class="section section--subpage-hero">
-      <div class="container">
-        <p class="subpage-eyebrow">Product</p>
-        <h1 class="subpage-title">Janus DTM OS</h1>
-        <p class="subpage-lede">Your workflows. Gated, audited, and governed — without replacement.</p>
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Janus DTM OS — Governance infrastructure for AI workflows</p>
+        <h1>Memory. Gates.<br><em>Nothing executes</em><br>until you ratify it.</h1>
+        <p class="hero-sub">Janus sits above your existing agent infrastructure and governs everything that matters. Hard human gates at defined danger points. Structured memory of every reason, decision, and override. System-wide critical-thinking hygiene before anything moves.</p>
       </div>
     </section>
 
-    <!-- Problem -->
-    <section class="section">
-      <div class="container">
-        <div class="prose prose--wide">
-          <p>AI systems are fast, and the future of work. They're also opaque. They drift, hallucinate, and make decisions nobody can trace. When something goes wrong, nobody knows why. Or when it started.</p>
-          <p class="prose-emphasis">Janus fixes that.</p>
-          <p>You bring your workflow. We install it, gate it, and run it. When something matters — when an action is risky, irreversible, or outside defined bounds — Janus stops and surfaces it to the operator. The operator decides. Janus remembers, the system sustains.</p>
-          <p>Every decision is logged. Every override is audited. Every workflow runs the same way every time, until a human says otherwise.</p>
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">The problem</p>
+        <div class="two-col">
+          <p class="big-serif">We built AI systems that mimic human communication and thought. Then we forgot to teach them the <em>decision boxes</em> we teach humans.</p>
+          <div class="body-text">
+            <p>Organizations running AI workflows today have speed. What they don't have is memory, governance, or continuity. When something goes wrong there is no record of why it was approved, who decided, or when the drift started.</p>
+            <p>The models are not broken. The structure around them is missing.</p>
+            <p class="pull">Memory is retrieval, not storage — a larger context window is just a more expensive way to get lost.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- What you get -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section-heading">What you get</h2>
-        <div class="feature-list">
-
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true">&#9632;</div>
-            <div class="feature-body">
-              <h3>Full workflow visibility</h3>
-              <p>A Kanban that shows you what's running, what's blocked, and why. At a glance.</p>
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Architecture</p>
+        <p class="big-serif" style="max-width:580px;margin-bottom:0">Three layers. One governed system.</p>
+        <div class="layer-stack">
+          <div class="layer l3">
+            <div class="layer-num">Layer 3</div>
+            <div class="layer-name">Mission Control</div>
+            <div class="layer-sub">operational surface — visibility, state, operator actions</div>
+            <div class="tags">
+              <span class="tag">running</span>
+              <span class="tag blocked">blocked</span>
+              <span class="tag done">completed</span>
             </div>
           </div>
-
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true">&#9632;</div>
-            <div class="feature-body">
-              <h3>Grounded chat interface</h3>
-              <p>A chat interface grounded in your workflow's history, not a generic AI assistant.</p>
+          <div class="connector"><div class="arrow"></div></div>
+          <div class="layer l2">
+            <div class="layer-num">Layer 2</div>
+            <div class="layer-name">Coordination Runtime</div>
+            <div class="layer-sub">where humans and agents meet under governance</div>
+            <div class="tags">
+              <span class="tag">workflow gates</span>
+              <span class="tag">agent orchestration</span>
+              <span class="tag">approvals</span>
+              <span class="tag">escalation</span>
             </div>
           </div>
-
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true">&#9632;</div>
-            <div class="feature-body">
-              <h3>Institutional memory</h3>
-              <p>Captures the why behind every decision so your team never makes the same mistake twice.</p>
+          <div class="connector"><div class="arrow"></div></div>
+          <div class="layer l1">
+            <div class="layer-num">Layer 1</div>
+            <div class="layer-name">Institutional Memory</div>
+            <div class="layer-sub">cards · memory graph · governance · traceability</div>
+            <div class="tags">
+              <span class="tag">card hierarchy</span>
+              <span class="tag">memory graph</span>
+              <span class="tag">drift detection</span>
+              <span class="tag">audit trail</span>
             </div>
           </div>
-
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true">&#9632;</div>
-            <div class="feature-body">
-              <h3>Governance gates</h3>
-              <p>Stops the workflow before bad output reaches anyone downstream.</p>
-            </div>
-          </div>
-
         </div>
-
-        <p class="feature-target">Built for operations leaders who are done guessing what their AI is doing.</p>
+        <div class="grid3">
+          <div class="grid3-item">
+            <div class="grid3-num">01 — Memory</div>
+            <div class="grid3-title">Institutional Memory</div>
+            <div class="grid3-body">Every decision, override, and conversation is stored in structured, retrievable form. Not a log. A memory graph that answers why — not just what. When your best operator leaves, the reasoning stays.</div>
+          </div>
+          <div class="grid3-item">
+            <div class="grid3-num">02 — Runtime</div>
+            <div class="grid3-title">Coordination Runtime</div>
+            <div class="grid3-body">Every workflow, approval, escalation, and handoff governed, logged, and traceable. Nothing slips between human and agent without a record. The runtime is where governance becomes operational.</div>
+          </div>
+          <div class="grid3-item">
+            <div class="grid3-num">03 — Surface</div>
+            <div class="grid3-title">Mission Control</div>
+            <div class="grid3-body">A Kanban showing what is running, what is blocked, and why. A chat interface grounded in each workflow's history — not a generic assistant. The window into the system, not the system itself.</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CTAs -->
-    <section class="section">
-      <div class="container">
-        <div class="product-ctas">
-          <a href="#" class="btn btn--primary">Watch the demo</a>
-          <a href="#" class="btn btn--secondary">See screenshots</a>
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Mission Control — Kanban</p>
+        <p class="big-serif" style="max-width:560px;margin-bottom:0">Every workflow. One surface.<br>Blocked means something needs you.</p>
+        <div class="kanban-strip">
+          <div class="lane">
+            <div class="lane-header running">Running</div>
+            <div class="kcard">
+              <div class="kcard-title">HR onboarding — intake</div>
+              <div class="kcard-sub">Stage 2 · plan generation</div>
+            </div>
+            <div class="kcard">
+              <div class="kcard-title">Vendor contract review</div>
+              <div class="kcard-sub">Stage 4 · apply</div>
+            </div>
+          </div>
+          <div class="lane">
+            <div class="lane-header blocked">Blocked</div>
+            <div class="kcard is-blocked">
+              <div class="kcard-title">Scheduling — day-of-week drift</div>
+              <div class="kcard-sub">Stage 4 · gate fired</div>
+              <div class="gate-note">Tuesday→Monday drift detected on 14 teacher records. Human review required before apply proceeds.</div>
+            </div>
+          </div>
+          <div class="lane">
+            <div class="lane-header done">Completed</div>
+            <div class="kcard is-done">
+              <div class="kcard-title">Q2 budget allocation</div>
+              <div class="kcard-sub">Published · ratified by operator</div>
+            </div>
+            <div class="kcard is-done">
+              <div class="kcard-title">Policy update — access control</div>
+              <div class="kcard-sub">Closed · 3 overrides logged</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Gates</p>
+        <div class="two-col">
+          <p class="big-serif">Hard stops at defined danger points. Nothing irreversible happens without a human decision.</p>
+          <div class="body-text">
+            <p>Gates are not suggestions. They are governance primitives injected at the points where risk, ambiguity, policy, cost, or irreversible action requires review.</p>
+            <p>When a gate fires, the workflow stops. The operator sees what triggered it, reviews the context, and decides. Janus records the decision and the reason — not just the outcome.</p>
+          </div>
+        </div>
+        <div class="grid2" style="margin-top:44px">
+          <div class="grid2-item">
+            <div class="grid2-label">When gates fire</div>
+            <div class="grid2-body"><strong>Risk.</strong> Ambiguity. Policy boundary. Cost threshold. Irreversible action. Any condition your organization defines as requiring human judgment.</div>
+          </div>
+          <div class="grid2-item">
+            <div class="grid2-label">What gates produce</div>
+            <div class="grid2-body">A structured decision record. <strong>Who reviewed it, what they saw, what they decided, and why.</strong> Every override is audited. Every approval is linked to the plan it governed.</div>
+          </div>
+          <div class="grid2-item">
+            <div class="grid2-label">Gate contract</div>
+            <div class="grid2-body">One page, plain language. <strong>What triggers the gate. What it evaluates. What it returns. What happens at each decision point.</strong> Defined by your organization before deployment.</div>
+          </div>
+          <div class="grid2-item">
+            <div class="grid2-label">Operator mental model</div>
+            <div class="grid2-body">Three gates. Intent — approve. Plan — approve. Run — review — restart. <strong>Simple enough to hold in working memory.</strong> Complex enough to govern a production workflow.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Assembly line</p>
+        <p class="big-serif" style="max-width:560px;margin-bottom:0">Six agents. One governed pipeline.<br>No agent touches output without all six passing.</p>
+        <div class="assembly-row">
+          <div class="agent">
+            <div class="agent-name">Caretaker</div>
+            <div class="agent-role">Intake gate — validates intent and approves or rejects</div>
+          </div>
+          <div class="agent-sep"></div>
+          <div class="agent">
+            <div class="agent-name">Gardener</div>
+            <div class="agent-role">Structures content — background, proposal, action items</div>
+          </div>
+          <div class="agent-sep"></div>
+          <div class="agent">
+            <div class="agent-name">Mercury</div>
+            <div class="agent-role">Memory routing — STM vs LTM promotion</div>
+          </div>
+          <div class="agent-sep"></div>
+          <div class="agent">
+            <div class="agent-name">Sentinel</div>
+            <div class="agent-role">Policy audit — PII, safety, compliance</div>
+          </div>
+          <div class="agent-sep"></div>
+          <div class="agent">
+            <div class="agent-name">Conductor</div>
+            <div class="agent-role">Workflow state — done, quarantine, archived</div>
+          </div>
+          <div class="agent-sep"></div>
+          <div class="agent">
+            <div class="agent-name">Scribe</div>
+            <div class="agent-role">Decision capture — ledger write and audit trail</div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--dim);font-family:'Geist Mono',monospace;margin-top:16px;text-align:center">Every plan runs the full pipeline before reaching a human gate.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Critical-thinking hygiene</p>
+        <div class="two-col">
+          <p class="big-serif">The system challenges its own output before you approve it.</p>
+          <div class="body-text">
+            <p>Hygiene is not a review step bolted on at the end. It runs continuously — on intent, on plans, on decisions, on memory — before anything reaches a human gate.</p>
+            <p>The goal is not perfection from the model. The goal is that every input that reaches an operator has been challenged, scored, and surfaced with its weaknesses visible.</p>
+          </div>
+        </div>
+        <div class="hygiene-list">
+          <div class="hygiene-item">
+            <div class="hygiene-key">Intent hygiene</div>
+            <div class="hygiene-val">Before a plan is generated, the intent is scored across structured bins. <strong>Ambiguous inputs are surfaced and resolved — not passed through.</strong></div>
+          </div>
+          <div class="hygiene-item">
+            <div class="hygiene-key">Plan hygiene</div>
+            <div class="hygiene-val">The plan itself goes through the same scoring ritual before ratification. <strong>Weak bins are flagged. The operator approves a plan that has been challenged, not one that has been generated.</strong></div>
+          </div>
+          <div class="hygiene-item">
+            <div class="hygiene-key">Memory hygiene</div>
+            <div class="hygiene-val">Stale, contradictory, or low-confidence memory is pruned before it can influence a live workflow. <strong>Context that reaches execution is clean context.</strong></div>
+          </div>
+          <div class="hygiene-item">
+            <div class="hygiene-key">Drift detection</div>
+            <div class="hygiene-val">Janus tracks intent from the moment a workflow begins. When agent output drifts from the ratified plan, <strong>the system surfaces it before it ships.</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="closing">
+      <p class="closing-h">Workflow tools move tasks.<br>Janus stabilizes institutions.</p>
+      <p class="closing-sub">Governance, memory, and continuity built into every workflow from the start.</p>
+    </div>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2026 Dynamic Trajectory Memory. All rights reserved.</p>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="company.html">Company</a>
-        <a href="product.html">Product</a>
-        <a href="roadmap.html">Roadmap</a>
-      </nav>
-    </div>
+  <footer>
+    <div class="footer-l">DTM — Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 &middot; Ottawa, ON</span></div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="company.html">Company</a>
+      <a href="product.html">Product</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
   </footer>
 
   <script>

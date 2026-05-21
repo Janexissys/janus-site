@@ -7,54 +7,85 @@
   <title>Company — DTM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">DTM</a>
-      <ul class="nav-links">
-        <li><a href="company.html" class="nav-link--active">Company</a></li>
-        <li><a href="product.html">Product</a></li>
-        <li><a href="roadmap.html">Roadmap</a></li>
-      </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <nav>
+    <div class="nav-left"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
+    <ul class="nav-links">
+      <li><a href="company.html" class="nav-link--active">Company</a></li>
+      <li><a href="product.html">Product</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <main>
 
-    <section class="section section--subpage-hero">
-      <div class="container">
-        <p class="subpage-eyebrow">Company</p>
-        <h1 class="subpage-title">Dynamic Trajectory Memory</h1>
-        <p class="subpage-lede">We believe AI is only as reliable as the structure around it.</p>
+    <section class="subpage-hero">
+      <div class="wrap">
+        <p class="eyebrow">Company</p>
+        <h1>Dynamic Trajectory Memory</h1>
+        <p class="hero-sub">We believe AI is only as reliable as the structure around it.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="prose">
-          <p>DTM builds governance infrastructure for organizations running AI workflows. Our flagship product, Janus, sits above your existing processes and makes sure nothing important happens without a human in the loop. And nothing that happens gets forgotten.</p>
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">The structure problem</p>
+        <div class="two-col">
+          <p class="big-serif">We built AI systems that move faster than any organization can supervise. Then we forgot to build the structure.</p>
+          <div class="body-text">
+            <p>Organizations running AI workflows today have speed. What they don't have is memory, governance, or continuity. When something goes wrong there is no record of why it was approved, who decided, or when the drift started.</p>
+            <p>The models are not broken. The structure around them is missing. Every organization deploying AI in production is accumulating unstructured decisions — approvals in chat threads, overrides nobody documented, institutional knowledge that lives only in the people who happened to be in the room.</p>
+            <p class="pull">When your best operator leaves, so does the reasoning. That is a structural problem, not a personnel one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">What DTM builds</p>
+        <div class="two-col">
+          <p class="big-serif">Governance infrastructure. The layer between your agents and your organization.</p>
+          <div class="body-text">
+            <p>DTM builds Janus DTM OS — a governed institutional memory layer for human-agent organizations. Janus sits above your existing agent infrastructure and owns two things: the decision boundary and the organizational memory.</p>
+            <p>Nothing executes until a human ratifies it. Nothing that happens gets forgotten. Every decision, approval, override, and escalation is stored in structured, retrievable form — linked to the plan it governed and the context that produced it.</p>
+            <p>The gates are not features. The card hierarchy is not a feature. The linked memory is not a feature. They are institutional stabilizers — infrastructure for organizations where humans and agents work together and the stakes of getting it wrong are real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Why this matters now</p>
+        <div class="two-col">
+          <p class="big-serif">The adoption curve is ahead of the governance infrastructure by years.</p>
+          <div class="body-text">
+            <p>Organizations are deploying AI workflows in production without the institutional infrastructure to govern them. The audit trail problem, the memory problem, the handoff problem — these are structural gaps that models cannot fill.</p>
+            <p>Janus is not a wrapper around an LLM. It is an operating system for the decision boundary — the point where human judgment must meet machine execution and the result must be recorded, retrievable, and defensible.</p>
+            <p>DTM is building this infrastructure now because the cost of not having it compounds. Every unrecorded decision is institutional debt. Every undocumented override is a liability. Every time an operator leaves and takes the context with them, the organization loses ground it cannot easily recover.</p>
+            <p class="pull">The work that matters now is building the memory and governance layer before the defaults get set without it.</p>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2026 Dynamic Trajectory Memory. All rights reserved.</p>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="company.html">Company</a>
-        <a href="product.html">Product</a>
-        <a href="roadmap.html">Roadmap</a>
-      </nav>
-    </div>
+  <footer>
+    <div class="footer-l">DTM — Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 &middot; Ottawa, ON</span></div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="company.html">Company</a>
+      <a href="product.html">Product</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
   </footer>
 
   <script>
