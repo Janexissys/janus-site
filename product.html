@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="DTM — Janus OS. Deterministic gates, plain language, human decision.">
+<meta name="description" content="See a gate stop an AI workflow, review in grounded chat, and clear it with a logged human decision — Janus for regulated industries.">
 <title>Product — DTM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,38 +111,6 @@ h1 em{font-style:italic;color:var(--accent)}
 .gate-part--decision{background:rgba(61,26,8,0.45);border-color:var(--blocked-b)}
 .gate-part--decision .gate-part-key{color:var(--blocked-t)}
 
-/* KANBAN */
-.kanban-strip{display:flex;gap:8px;margin-top:44px}
-.lane{flex:1;background:var(--bg3);border:0.5px solid var(--border-mid);border-radius:5px;padding:16px 14px}
-.lane-header{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;padding-bottom:10px;border-bottom:0.5px solid var(--border)}
-.lane-header.running{color:var(--muted)}
-.lane-header.blocked{color:var(--blocked-t)}
-.lane-header.done{color:var(--completed-t)}
-.kcard{background:var(--bg2);border:0.5px solid var(--border-mid);border-radius:4px;padding:10px 12px;margin-bottom:6px;font-size:11px}
-.kcard-title{color:var(--text);font-weight:500;margin-bottom:3px}
-.kcard-sub{font-family:'Geist Mono',monospace;font-size:9px;color:var(--dim)}
-.kcard.is-blocked{background:var(--blocked);border-color:var(--blocked-b)}
-.kcard.is-blocked .kcard-title{color:var(--blocked-t)}
-.kcard.is-blocked .kcard-sub{color:rgba(232,120,64,0.5)}
-.kcard.is-done{background:rgba(26,61,46,0.4);border-color:var(--completed-b)}
-.kcard.is-done .kcard-title{color:var(--completed-t)}
-.kcard.is-done .kcard-sub{color:rgba(74,170,120,0.5)}
-.gate-note{font-family:'Geist Mono',monospace;font-size:9px;color:var(--blocked-t);border-top:0.5px solid var(--blocked-b);margin-top:6px;padding-top:8px;line-height:1.5}
-.kcard-parent{border-color:var(--border-mid);padding-bottom:8px}
-.kcard-parent-label{font-family:'Geist Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
-.kcard-children{margin-top:4px;padding-left:10px;border-left:1px solid var(--border-mid)}
-.kcard-child{background:var(--bg);border:0.5px solid var(--border);border-radius:3px;padding:7px 9px;margin-bottom:4px;font-size:10px}
-.kcard-child:last-child{margin-bottom:0}
-.kcard-child-title{color:var(--muted);font-weight:500;margin-bottom:2px}
-.kcard-child-sub{font-family:'Geist Mono',monospace;font-size:8px;color:var(--dim)}
-.kcard-child.is-active{border-color:rgba(200,169,110,0.35);background:rgba(200,169,110,0.06)}
-.kcard-child.is-active .kcard-child-title{color:var(--text)}
-.kcard-child.is-blocked{border-color:var(--blocked-b);background:rgba(61,26,8,0.35)}
-.kcard-child.is-blocked .kcard-child-title{color:var(--blocked-t)}
-.kcard-child.is-waiting{opacity:0.55}
-.kanban-caption{margin-top:32px;max-width:720px;font-size:13px;color:var(--muted);font-weight:300;line-height:1.75}
-.kanban-caption strong{color:var(--text);font-weight:500}
-
 /* ASSEMBLY */
 .assembly-row{display:flex;align-items:stretch;gap:1px;margin-top:44px;background:var(--border);border:0.5px solid var(--border);border-radius:5px;overflow:hidden}
 .agent{flex:1;background:var(--bg2);padding:20px 16px;text-align:center}
@@ -171,6 +139,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 .footer-nav a{font-family:'Geist Mono',monospace;font-size:10px;color:var(--dim);text-decoration:none}
 .footer-nav a:hover{color:var(--muted)}
 </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -186,10 +155,124 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 
 <main>
 
-<section class="hero">
-  <div class="eyebrow mono">Governance infrastructure for AI workflows</div>
-  <h1 class="serif">Human decides.<br>AI accelerates.<br><em>Janus sustains.</em></h1>
-  <p class="hero-sub">Janus sits above your existing agent infrastructure and injects hard, human-defined gates at defined danger points. Not AI judgment. Not probability. Rules your organization wrote, in language your operators can read, firing on facts.</p>
+<section id="demo" class="demo-hero demo-block">
+  <div class="wrap">
+    <p class="eyebrow mono">Demo</p>
+    <h1 class="demo-block-title serif">See a gate stop a workflow — then see a human clear it.</h1>
+    <div class="demo-video-slot" aria-label="Demo video placeholder">
+      <span class="demo-video-label mono">Recording in progress</span>
+      <p class="demo-video-note">Full product walkthrough (~60–90s) coming soon. The storyboard and Mission Control view below show the same flow.</p>
+      <!-- Phase B: when assets/demo.mp4 exists, replace slot contents with:
+      <video class="demo-video" id="product-demo-video" controls playsinline poster="assets/demo-poster.jpg">
+        <source src="assets/demo.mp4" type="video/mp4">
+      </video>
+      -->
+    </div>
+    <div class="demo-storyboard">
+      <div class="demo-step">
+        <div class="demo-step-num mono">01</div>
+        <div class="demo-step-title">Workflow runs</div>
+        <p class="demo-step-desc">Mission Control shows the parent workflow and child tasks in Running — until a gate condition is met.</p>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num mono">02</div>
+        <div class="demo-step-title">Gate blocks</div>
+        <p class="demo-step-desc">Scheduling or drift fires on a fact. The card moves to Blocked; children inherit the hold.</p>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num mono">03</div>
+        <div class="demo-step-title">Human clears</div>
+        <p class="demo-step-desc">Operator reviews grounded chat, then approves or allows with debt. Every path logged; workflow completes.</p>
+      </div>
+    </div>
+    <p class="hero-brand-tagline serif" style="margin-top:40px;margin-bottom:0">Human decides. AI accelerates. <em>Janus sustains.</em></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label mono">See it work</div>
+    <div class="demo-beats">
+      <div class="demo-beat">
+        <span class="demo-beat-num mono">1</span>
+        <p class="demo-beat-text">A workflow runs in Mission Control — parent card with child tasks advancing through stages.</p>
+      </div>
+      <div class="demo-beat">
+        <span class="demo-beat-num mono">2</span>
+        <p class="demo-beat-text">A gate fires on a scheduling or drift condition. The parent moves to <strong style="color:var(--blocked-t);font-weight:500">Blocked</strong>; children do not advance.</p>
+      </div>
+      <div class="demo-beat">
+        <span class="demo-beat-num mono">3</span>
+        <p class="demo-beat-text">The operator opens card chat. Answers draw on institutional memory — contracts, gate context, prior ratifications.</p>
+      </div>
+      <div class="demo-beat">
+        <span class="demo-beat-num mono">4</span>
+        <p class="demo-beat-text">The operator resolves — approve, hold, or allow with debt. The decision is logged; the workflow moves to Completed.</p>
+      </div>
+    </div>
+    <div class="kanban-strip">
+      <div class="lane">
+        <div class="lane-header running mono">Running</div>
+        <div class="kcard kcard-parent">
+          <div class="kcard-parent-label mono">Parent workflow</div>
+          <div class="kcard-title">Vendor approval</div>
+          <div class="kcard-sub mono">Stage 2 · plan generation</div>
+          <div class="kcard-children">
+            <div class="kcard-child is-active">
+              <div class="kcard-child-title">Intake review</div>
+              <div class="kcard-child-sub mono">Chat active · this card</div>
+            </div>
+            <div class="kcard-child">
+              <div class="kcard-child-title">Plan generation</div>
+              <div class="kcard-child-sub mono">Waiting on prior gate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lane">
+        <div class="lane-header blocked mono">Blocked</div>
+        <div class="kcard kcard-parent is-blocked">
+          <div class="kcard-parent-label mono">Parent workflow</div>
+          <div class="kcard-title">External submission</div>
+          <div class="kcard-sub mono">Scheduling gate · operator review</div>
+          <div class="gate-note mono">Condition met on 14 records.<br>Propagates to child tasks below.</div>
+          <div class="kcard-children">
+            <div class="kcard-child is-blocked">
+              <div class="kcard-child-title">Validate records</div>
+              <div class="kcard-child-sub mono">Blocked · inherited from parent</div>
+            </div>
+            <div class="kcard-child is-waiting">
+              <div class="kcard-child-title">Apply changes</div>
+              <div class="kcard-child-sub mono">Instructions held until gate clears</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lane">
+        <div class="lane-header done mono">Completed</div>
+        <div class="kcard kcard-parent is-done">
+          <div class="kcard-parent-label mono">Parent workflow</div>
+          <div class="kcard-title">Q4 allocation</div>
+          <div class="kcard-sub mono">Published · ratified</div>
+          <div class="kcard-children">
+            <div class="kcard-child">
+              <div class="kcard-child-title">Final sign-off</div>
+              <div class="kcard-child-sub mono">Completed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="kanban-caption"><strong>Click any card</strong> to open its chat — siloed working memory for that unit of work, searchable across the workflow when you need the full picture. <strong>Blocked</strong> on a parent means children do not advance until the gate is cleared.</p>
+  </div>
+</section>
+
+<section class="product-intro-strip">
+  <div class="wrap">
+    <p class="hero-plain">Janus stops unapproved AI actions and records who approved them — before they hit production.</p>
+    <p class="hero-icp">Built for Risk, Compliance, and IT leaders in highly regulated industries — finance, healthcare, defense, and critical infrastructure.</p>
+    <p class="dogfood-text" style="margin-top:24px"><span class="dogfood-eyebrow" style="margin-right:14px">Dogfood</span>DTM runs on Janus. Every decision we make is governed by our own institutional memory.</p>
+  </div>
 </section>
 
 <section class="sec">
@@ -208,12 +291,11 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-label mono">What makes this different</div>
+    <div class="sec-label mono">How gates work</div>
     <div class="two-col" style="margin-bottom:52px">
       <p class="big-serif serif">You cannot audit a <em>probability</em>.</p>
       <div class="body-text">
-        <p>Every AI system running on model judgment is a black box. It moves fast, it produces output, and when something goes wrong nobody can explain why it decided what it decided. A confidence score is not a policy. An inference is not a decision. You cannot put a probability in a court filing.</p>
-        <p><strong>Janus is the glass box.</strong> The trigger is a condition. The condition is deterministic. Your organization defines it before deployment. When the condition is true, the gate fires. No inference. No interpretation. A fact. Every decision logged. Every override audited. Every ratification linked to the plan it governed.</p>
+        <p>Every AI system running on model judgment is a black box. <strong>Janus is the glass box.</strong> Your organization defines the trigger before deployment. When the condition is true, the gate fires on a fact — not an inference. Every decision logged. Every override audited.</p>
         <p class="pull-tagline serif">Governable. Auditable. Yours.</p>
       </div>
     </div>
@@ -271,75 +353,13 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 <section class="sec">
   <div class="wrap">
     <div class="sec-label mono">Cards and Mission Control</div>
-    <div class="two-col" style="margin-bottom:44px">
+    <div class="two-col">
       <p class="big-serif serif">Parent and child.<br>One workflow surface.</p>
       <div class="body-text">
-        <p>Work is organized in a <strong>card hierarchy</strong>. Each card is a governed unit — its own context, its own chat, its own place in the workflow. Click a card and you work inside that silo. When you need wider context, search across other cards in the same workflow — connected, not isolated.</p>
-        <p>Child cards inherit the governance of their parent. When a gate fires upstream, it propagates downstream. When documentation changes at the parent, dependent cards are notified. Coherence without manually wiring every relationship.</p>
+        <p>Work is organized in a <strong>card hierarchy</strong>. Each card is a governed unit — its own context, its own chat, its own place in the workflow. Child cards inherit the governance of their parent: when a gate fires upstream, it propagates downstream; held instructions do not release until the gate clears.</p>
+        <p>Search across cards in the same workflow when you need the full picture — connected, not isolated.</p>
       </div>
     </div>
-    <div class="kanban-strip">
-      <div class="lane">
-        <div class="lane-header running mono">Running</div>
-        <div class="kcard kcard-parent">
-          <div class="kcard-parent-label mono">Parent workflow</div>
-          <div class="kcard-title">Vendor approval</div>
-          <div class="kcard-sub mono">Stage 2 · plan generation</div>
-          <div class="kcard-children">
-            <div class="kcard-child is-active">
-              <div class="kcard-child-title">Intake review</div>
-              <div class="kcard-child-sub mono">Chat active · this card</div>
-            </div>
-            <div class="kcard-child">
-              <div class="kcard-child-title">Plan generation</div>
-              <div class="kcard-child-sub mono">Waiting on prior gate</div>
-            </div>
-          </div>
-        </div>
-        <div class="kcard">
-          <div class="kcard-title">Policy update</div>
-          <div class="kcard-sub mono">Stage 4 · apply</div>
-        </div>
-      </div>
-      <div class="lane">
-        <div class="lane-header blocked mono">Blocked</div>
-        <div class="kcard kcard-parent is-blocked">
-          <div class="kcard-parent-label mono">Parent workflow</div>
-          <div class="kcard-title">External submission</div>
-          <div class="kcard-sub mono">Gate fired · operator review</div>
-          <div class="gate-note mono">Condition met on 14 records.<br>Propagates to child tasks below.</div>
-          <div class="kcard-children">
-            <div class="kcard-child is-blocked">
-              <div class="kcard-child-title">Validate records</div>
-              <div class="kcard-child-sub mono">Blocked · inherited from parent</div>
-            </div>
-            <div class="kcard-child is-waiting">
-              <div class="kcard-child-title">Apply changes</div>
-              <div class="kcard-child-sub mono">Instructions held until gate clears</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="lane">
-        <div class="lane-header done mono">Completed</div>
-        <div class="kcard kcard-parent is-done">
-          <div class="kcard-parent-label mono">Parent workflow</div>
-          <div class="kcard-title">Q4 allocation</div>
-          <div class="kcard-sub mono">Published · ratified</div>
-          <div class="kcard-children">
-            <div class="kcard-child">
-              <div class="kcard-child-title">Final sign-off</div>
-              <div class="kcard-child-sub mono">Completed</div>
-            </div>
-          </div>
-        </div>
-        <div class="kcard is-done">
-          <div class="kcard-title">Access review</div>
-          <div class="kcard-sub mono">Closed · 3 overrides logged</div>
-        </div>
-      </div>
-    </div>
-    <p class="kanban-caption"><strong>Click any card</strong> to open its chat — siloed working memory for that unit of work, searchable across the workflow when you need the full picture. <strong>Blocked</strong> on a parent means children do not advance: the next instruction does not release until the gate is cleared.</p>
   </div>
 </section>
 

@@ -652,7 +652,7 @@ h1 em {
 
 .page-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--border);
   border: 0.5px solid var(--border);
@@ -913,6 +913,433 @@ h1 em {
   opacity: 1;
 }
 
+/* ---------- Vector messaging: hero, demo, kanban ---------- */
+
+.hero-plain {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text);
+  font-weight: 400;
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+
+.hero-icp {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.hero-brand-tagline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.12;
+  font-weight: 400;
+  color: var(--text);
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.hero-brand-tagline em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.dogfood-strip {
+  padding: 20px 48px;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--bg2);
+}
+
+.dogfood-strip .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 20px;
+}
+
+.dogfood-eyebrow {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.dogfood-text {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 720px;
+}
+
+.demo-block {
+  padding: 64px 48px 80px;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--bg2);
+}
+
+.demo-block .eyebrow {
+  margin-bottom: 16px;
+}
+
+.demo-block-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+.demo-video-slot {
+  aspect-ratio: 16 / 9;
+  max-width: 960px;
+  background: var(--bg3);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.demo-video-slot .demo-video-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.demo-video-slot .demo-video-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 420px;
+  line-height: 1.65;
+}
+
+.demo-video {
+  width: 100%;
+  max-width: 960px;
+  display: block;
+  border-radius: 5px;
+  border: 0.5px solid var(--border-mid);
+  background: var(--bg3);
+}
+
+.demo-video:not([src]) {
+  display: none;
+}
+
+.demo-storyboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 960px;
+}
+
+.demo-step {
+  background: var(--bg3);
+  padding: 22px 20px;
+  text-align: left;
+}
+
+.demo-step-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.demo-step-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.demo-step-desc {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.demo-cta-row {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-primary {
+  display: inline-block;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 12px 22px;
+  border-radius: 4px;
+  border: 0.5px solid var(--accent);
+  transition: opacity 0.15s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-ghost {
+  display: inline-block;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--accent);
+  padding: 12px 22px;
+  border-radius: 4px;
+  border: 0.5px solid var(--border-mid);
+  transition: background 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--accent-dim);
+}
+
+.product-intro-strip {
+  padding: 56px 48px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.product-intro-strip .hero-plain {
+  margin-bottom: 12px;
+}
+
+.product-intro-strip .hero-icp {
+  margin-bottom: 20px;
+}
+
+.demo-hero {
+  padding-top: 80px;
+}
+
+.page-card--featured {
+  background: var(--bg3);
+}
+
+.page-card--featured .page-card-num {
+  color: var(--accent);
+}
+
+/* Kanban (product + demo section) */
+
+.kanban-strip {
+  display: flex;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.lane {
+  flex: 1;
+  background: var(--bg3);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 5px;
+  padding: 16px 14px;
+}
+
+.lane-header {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.lane-header.running { color: var(--muted); }
+.lane-header.blocked { color: var(--blocked-t); }
+.lane-header.done { color: var(--completed-t); }
+
+.kcard {
+  background: var(--bg2);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.kcard-title {
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.kcard-sub {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  color: var(--dim);
+}
+
+.kcard.is-blocked {
+  background: var(--blocked);
+  border-color: var(--blocked-b);
+}
+
+.kcard.is-blocked .kcard-title { color: var(--blocked-t); }
+.kcard.is-blocked .kcard-sub { color: rgba(232,120,64,0.5); }
+
+.kcard.is-done {
+  background: rgba(26,61,46,0.4);
+  border-color: var(--completed-b);
+}
+
+.kcard.is-done .kcard-title { color: var(--completed-t); }
+.kcard.is-done .kcard-sub { color: rgba(74,170,120,0.5); }
+
+.gate-note {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  color: var(--blocked-t);
+  border-top: 0.5px solid var(--blocked-b);
+  margin-top: 6px;
+  padding-top: 8px;
+  line-height: 1.5;
+}
+
+.kcard-parent {
+  border-color: var(--border-mid);
+  padding-bottom: 8px;
+}
+
+.kcard-parent-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 8px;
+}
+
+.kcard-children {
+  margin-top: 4px;
+  padding-left: 10px;
+  border-left: 1px solid var(--border-mid);
+}
+
+.kcard-child {
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  padding: 7px 9px;
+  margin-bottom: 4px;
+  font-size: 10px;
+}
+
+.kcard-child:last-child { margin-bottom: 0; }
+
+.kcard-child-title {
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.kcard-child-sub {
+  font-family: 'Geist Mono', monospace;
+  font-size: 8px;
+  color: var(--dim);
+}
+
+.kcard-child.is-active {
+  border-color: rgba(200,169,110,0.35);
+  background: rgba(200,169,110,0.06);
+}
+
+.kcard-child.is-active .kcard-child-title { color: var(--text); }
+
+.kcard-child.is-blocked {
+  border-color: var(--blocked-b);
+  background: rgba(61,26,8,0.35);
+}
+
+.kcard-child.is-blocked .kcard-child-title { color: var(--blocked-t); }
+
+.kcard-child.is-waiting { opacity: 0.55; }
+
+.kanban-caption {
+  margin-top: 28px;
+  max-width: 720px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.kanban-caption strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.demo-beats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 0.5px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 36px;
+  max-width: 720px;
+}
+
+.demo-beat {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--bg2);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.demo-beat:last-child {
+  border-bottom: none;
+}
+
+.demo-beat-num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  padding-top: 2px;
+}
+
+.demo-beat-text {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
 /* ---------- Footer ---------- */
 
 footer {
@@ -1020,6 +1447,22 @@ footer {
 
   .page-cards {
     grid-template-columns: 1fr;
+  }
+
+  .dogfood-strip {
+    padding: 20px;
+  }
+
+  .demo-block {
+    padding: 48px 20px 64px;
+  }
+
+  .demo-storyboard {
+    grid-template-columns: 1fr;
+  }
+
+  .product-intro-strip {
+    padding: 48px 20px;
   }
 
   .kanban-strip {

@@ -7,13 +7,12 @@
 | Layer | Technology |
 |-------|------------|
 | Backend | FastAPI, Python 3.12, Pydantic v2 |
-| Persistence | SQLite with aiosqlite (async, WAL) |
+| Persistence | SQLite with aiosqlite (async, WAL) — portable, isolated deployments |
 | Vector memory | ChromaDB — 384-dimensional embeddings |
 | LLM | Model-agnostic. Anthropic Claude in private beta. Ollama for local fallback. Bring your own via API. |
 | Embeddings | nomic-embed-text; SentenceTransformers fallback (all-MiniLM-L6-v2) |
 | Frontend | React, TypeScript, Vite, Radix UI, Tailwind CSS 4 |
 | CLI | Python Typer + Rich |
-| Tests | pytest (190+ tests) |
 
 Dev defaults: backend **:10000**, Mission Control **:3000** (proxies `/api`).
 
@@ -77,18 +76,6 @@ This describes the operator experience. It is the structural claim that makes �
 
 ---
 
-## Governed commands (RISC-style execution)
-
-Janus replaces monolithic prompt dumps with **structured, gated commands** — each task is a discrete agent or command slot in the workflow, not an open-ended instruction stream.
-
-- **Reduced surface per step** — Each unit of work carries only what that step needs. No releasing the next instruction until the previous gate has cleared.
-- **Gate-sequenced** — If a parent workflow is blocked, child tasks do not advance. Operators see held instructions, not silent failures downstream.
-- **Auditable progression** — What ran, what was withheld, and why are all attributable to a card and a gate decision.
-
-Public framing: **RISC-style** — small, composable, governed instructions rather than CISCO-scale “do everything” prompts that bypass policy.
-
----
-
 ## Bringing workflows under Janus
 
 Janus does not replace your agents or automation stack. It **registers** work inside a governance layer.
@@ -100,13 +87,15 @@ Janus does not replace your agents or automation stack. It **registers** work in
 
 ---
 
-## Governed workflow
+## Governed execution
 
-Every governed workflow moves through a fixed sequence: **intake → refine intent → plan → negotiate → approve → apply → verify → publish**. Each step is a named checkpoint. Each transition is logged. Nothing skips silently.
+**One governed step at a time. Nothing moves until the gate clears.**
 
-Your organization defines required artifacts and danger points **before** deployment. Janus enforces them at runtime. Existing agents and tools still do the work — Janus decides whether a step may proceed and records why.
+Most AI stacks hand the model a long prompt and hope it follows every rule. Janus breaks work into discrete, governed commands — one step per task, one gate before the next instruction releases. If a parent workflow is blocked, children hold. No silent drift downstream.
 
-Representative API surface: `POST /api/v1/workflow/ritual/*` plus operator endpoints under `/api/v1/operator/`.
+**Ritual sequence:** intake → refine intent → plan → negotiate → approve → apply → verify → publish. Each transition is logged. Your organization defines required artifacts and danger points before deployment; Janus enforces them at runtime. Existing agents and tools still do the work — Janus decides whether a step may proceed and records why.
+
+API surface: `POST /api/v1/workflow/ritual/*` plus operator endpoints under `/api/v1/operator/`.
 
 ---
 
@@ -127,7 +116,7 @@ Meta-cognitive (MC) scoring informs readiness. The gate **authorizes**. Those la
 | Allow | Execution may proceed |
 | Clarify | Not authorized yet — more specificity or evidence required |
 | Human review | Operator decides: approve, reject, clarify, or allow with debt |
-| Allow with debt | Proceeds with a logged obligation to resolve later |
+| Allow with debt | Proceeds now with a logged obligation to resolve later — work keeps moving without pretending compliance is done |
 | Block | Execution does not proceed |
 
 The authorization outcome is deterministic given the declared condition. That is what makes it auditable.
@@ -175,13 +164,13 @@ Verified in the test suite against the seeded catalog. Live demo available on re
 
 ---
 
-## Compatibility
+## Integration
 
-Janus sits above your existing agent infrastructure.
+**HTTP by design. Your stack stays in place.**
 
-- Any HTTP client can call the API surface.
-- LLM provider is environment-configurable — Anthropic in private beta, Ollama locally, or your own via the fallback chain.
-- Phase 1 integration surface is **HTTP** — native SaaS connectors are on the roadmap.
+Phase 1 integration is deliberately **HTTP** — not a gap, a boundary. Your existing agents, scripts, and orchestrators connect without replacement. Any HTTP client can call the API surface.
+
+LLM provider is environment-configurable — Anthropic in private beta, Ollama locally, or bring your own via the fallback chain. Native SaaS connectors are on the roadmap.
 
 ---
 
