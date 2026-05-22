@@ -51,9 +51,10 @@ h1 em{font-style:italic;color:var(--accent)}
 .big-serif em{font-style:italic;color:var(--muted)}
 .body-text{font-size:14px;color:var(--muted);line-height:1.85;font-weight:300}
 .body-text p+p{margin-top:18px}
-.pull{font-family:'Geist Mono',monospace;font-size:11px;color:var(--dim);border-left:1px solid var(--border-mid);padding-left:14px;line-height:1.65;margin-top:24px}
+.pull{font-family:'Geist Mono',monospace;font-size:12px;color:var(--muted);border-left:1px solid var(--accent);padding-left:14px;line-height:1.65;margin-top:24px}
+.pull-tagline{font-family:'Instrument Serif',serif;font-size:clamp(20px,2.5vw,28px);line-height:1.3;color:var(--text);margin-top:28px;letter-spacing:-0.01em}
 
-.layer-stack{display:flex;flex-direction:column;gap:2px;margin:52px 0 0}
+.layer-stack{display:flex;flex-direction:column-reverse;gap:2px;margin:52px 0 0}
 .layer{border:0.5px solid;border-radius:5px;padding:22px 26px}
 .layer.l3{background:rgba(42,42,42,0.5);border-color:#3a3a38}
 .layer.l2{background:rgba(20,26,54,0.7);border-color:var(--blue-b)}
@@ -71,9 +72,9 @@ h1 em{font-style:italic;color:var(--accent)}
 .l1 .tag{border-color:var(--green-b);color:var(--green-t);opacity:0.75}
 .tag.blocked{border-color:var(--blocked-b);color:var(--blocked-t)}
 .tag.done{border-color:var(--completed-b);color:var(--completed-t)}
-.connector{display:flex;justify-content:center;align-items:flex-end;height:22px;position:relative}
+.connector{display:flex;justify-content:center;align-items:flex-start;height:22px;position:relative}
 .connector::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:0.5px;height:100%;background:var(--border-mid)}
-.arrow{width:5px;height:5px;border-right:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);transform:rotate(45deg);position:relative;z-index:1;margin-bottom:1px}
+.arrow{width:5px;height:5px;border-right:0.5px solid var(--border-mid);border-bottom:0.5px solid var(--border-mid);transform:rotate(-135deg);position:relative;z-index:1;margin-top:1px}
 
 /* GATE SECTION */
 .gate-differentiator{margin-top:52px;border:0.5px solid var(--border-mid);border-radius:5px;overflow:hidden}
@@ -89,17 +90,26 @@ h1 em{font-style:italic;color:var(--accent)}
 .gate-example{background:var(--bg3);border:0.5px solid var(--border-mid);border-radius:4px;padding:14px 16px;font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted);line-height:1.7}
 .gate-example.bad-ex{border-color:rgba(232,120,64,0.2);background:rgba(61,26,8,0.4)}
 .gate-example .gate-line{color:var(--text)}
+.gate-example .gate-line+.gate-line{margin-top:10px}
 .gate-example .gate-comment{color:var(--dim)}
 .gate-example .gate-fired{color:var(--blocked-t)}
 .gate-example .gate-pass{color:var(--green-t)}
 .gate-note-text{font-size:12px;color:var(--muted);font-weight:300;margin-top:12px;line-height:1.7}
 
 .gate-anatomy{margin-top:1px;background:var(--bg2);border-top:0.5px solid var(--border);padding:28px 28px}
-.gate-anatomy-label{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
-.gate-parts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:4px;overflow:hidden}
-.gate-part{background:var(--bg3);padding:16px 14px}
-.gate-part-key{font-family:'Geist Mono',monospace;font-size:9px;color:var(--accent);margin-bottom:6px;opacity:0.7}
-.gate-part-val{font-size:11px;color:var(--muted);line-height:1.6;font-weight:300}
+.gate-anatomy-label{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.gate-parts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gate-part{border-radius:5px;padding:18px 16px;border:0.5px solid}
+.gate-part-key{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.gate-part-val{font-size:12px;color:var(--text);line-height:1.65;font-weight:300;opacity:0.92}
+.gate-part--trigger{background:rgba(200,169,110,0.1);border-color:rgba(200,169,110,0.4)}
+.gate-part--trigger .gate-part-key{color:var(--accent)}
+.gate-part--evaluates{background:rgba(20,26,54,0.85);border-color:var(--blue-b)}
+.gate-part--evaluates .gate-part-key{color:var(--blue-t)}
+.gate-part--returns{background:rgba(26,61,46,0.55);border-color:var(--green-b)}
+.gate-part--returns .gate-part-key{color:var(--green-t)}
+.gate-part--decision{background:rgba(61,26,8,0.45);border-color:var(--blocked-b)}
+.gate-part--decision .gate-part-key{color:var(--blocked-t)}
 
 /* KANBAN */
 .kanban-strip{display:flex;gap:8px;margin-top:44px}
@@ -125,13 +135,16 @@ h1 em{font-style:italic;color:var(--accent)}
 .agent-name{font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;color:var(--text);margin-bottom:6px}
 .agent-role{font-size:11px;color:var(--muted);line-height:1.5;font-weight:300}
 
-/* HYGIENE */
-.hygiene-list{margin-top:44px;display:flex;flex-direction:column;gap:0;border:0.5px solid var(--border);border-radius:5px;overflow:hidden}
-.hygiene-item{display:grid;grid-template-columns:160px 1fr}
-.hygiene-item+.hygiene-item{border-top:0.5px solid var(--border)}
-.hygiene-key{background:var(--bg3);padding:18px 20px;font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted);border-right:0.5px solid var(--border)}
-.hygiene-val{background:var(--bg2);padding:18px 24px;font-size:13px;color:var(--muted);font-weight:300;line-height:1.7}
-.hygiene-val strong{color:var(--text);font-weight:500}
+/* BEFORE THE GATE */
+.prep-list{margin-top:44px;display:flex;flex-direction:column;gap:0;border:0.5px solid var(--border);border-radius:5px;overflow:hidden}
+.prep-item{display:grid;grid-template-columns:160px 1fr}
+.prep-item+.prep-item{border-top:0.5px solid var(--border)}
+.prep-key{background:var(--bg3);padding:18px 20px;font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;border-right:0.5px solid var(--border)}
+.prep-val{background:var(--bg2);padding:18px 24px;font-size:13px;color:var(--text);font-weight:300;line-height:1.7;opacity:0.92}
+.prep-item--context .prep-key{color:var(--accent)}
+.prep-item--documentation .prep-key{color:var(--blue-t)}
+.prep-item--signal .prep-key{color:var(--blocked-t)}
+.prep-item--memory .prep-key{color:var(--green-t)}
 
 .closing{padding:112px 48px;text-align:center;border-bottom:0.5px solid var(--border)}
 .closing-h{font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,50px);font-weight:400;line-height:1.18;color:var(--text);max-width:680px;margin:0 auto 20px}
@@ -150,8 +163,8 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 <nav>
   <div class="nav-left mono"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
   <ul class="nav-links">
-    <li><a href="company.html">Company</a></li>
     <li><a href="product.html" class="nav-link--active">Product</a></li>
+    <li><a href="company.html">Company</a></li>
     <li><a href="roadmap.html">Roadmap</a></li>
   </ul>
 </nav>
@@ -160,7 +173,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 
 <section class="hero">
   <div class="eyebrow mono">Governance infrastructure for AI workflows</div>
-  <h1 class="serif">Deterministic gates.<br>Plain language.<br><em>Human decision.</em></h1>
+  <h1 class="serif">Human decides.<br>AI accelerates.<br><em>Janus sustains.</em></h1>
   <p class="hero-sub">Janus sits above your existing agent infrastructure and injects hard, human-defined gates at defined danger points. Not AI judgment. Not probability. Rules your organization wrote, in language your operators can read, firing on facts.</p>
 </section>
 
@@ -168,11 +181,11 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
   <div class="wrap">
     <div class="sec-label mono">The problem</div>
     <div class="two-col">
-      <p class="big-serif serif">We built AI systems that mimic human communication and thought. Then we forgot to teach them the <em>decision boxes</em> we teach humans.</p>
+      <p class="big-serif serif">We built AI systems that mimic human communication and thought. Then we forgot to teach them the <em>decision boxes or gates</em> we teach humans.</p>
       <div class="body-text">
         <p>Organizations running AI workflows today have speed. What they don't have is memory, governance, or continuity. When something goes wrong there is no record of why it was approved, who decided, or when the drift started.</p>
         <p>The models are not broken. The structure around them is missing.</p>
-        <div class="pull mono">Memory is retrieval, not storage — a larger context window is just a more expensive way to get lost.</div>
+        <div class="pull mono">Memory is retrieval, not storage. A larger context window is just a more expensive way to get lost.</div>
       </div>
     </div>
   </div>
@@ -182,61 +195,57 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
   <div class="wrap">
     <div class="sec-label mono">What makes this different</div>
     <div class="two-col" style="margin-bottom:52px">
-      <p class="big-serif serif">The gate does not guess. It evaluates a condition you defined, in language you can read, and stops or passes on a fact.</p>
+      <p class="big-serif serif">You cannot audit a <em>probability</em>.</p>
       <div class="body-text">
-        <p>Every governance system that runs on model judgment is a system that can be wrong in unpredictable ways. You cannot audit a probability. You cannot put a confidence score in a policy document.</p>
-        <p>Janus gates are deterministic. The trigger is a condition. The condition is written in plain language by your organization before deployment. When the condition is true, the gate fires. No inference. No interpretation. A fact.</p>
+        <p>Every AI system running on model judgment is a black box. It moves fast, it produces output, and when something goes wrong nobody can explain why it decided what it decided. A confidence score is not a policy. An inference is not a decision. You cannot put a probability in a court filing.</p>
+        <p><strong>Janus is the glass box.</strong> The trigger is a condition. The condition is deterministic. Your organization defines it before deployment. When the condition is true, the gate fires. No inference. No interpretation. A fact. Every decision logged. Every override audited. Every ratification linked to the plan it governed.</p>
+        <p class="pull-tagline serif">Governable. Auditable. Yours.</p>
       </div>
     </div>
 
     <div class="gate-differentiator">
       <div class="gate-diff-header">
         <span class="gate-diff-badge mono">Differentiator</span>
-        <span class="gate-diff-title">Deterministic gate — plain language contract</span>
+        <span class="gate-diff-title">Deterministic gates</span>
       </div>
       <div class="gate-comparison">
         <div class="gate-col">
           <div class="gate-col-label bad mono">Without Janus — model judgment</div>
           <div class="gate-example bad-ex">
-            <div class="gate-comment"># AI evaluates whether this "seems risky"</div>
-            <div class="gate-comment"># No defined threshold. No auditable trigger.</div>
-            <div class="gate-comment"># Passes on Tuesday. Fails on Thursday.</div>
-            <div class="gate-comment"># Nobody knows why.</div>
+            <div class="gate-line">A decision was made</div>
+            <div class="gate-line">No record of what triggered it</div>
+            <div class="gate-line">No record of what was evaluated</div>
+            <div class="gate-line">Cannot be audited or explained</div>
           </div>
-          <p class="gate-note-text">Model decides. Operator discovers the outcome. No record of what was evaluated or why the decision was made.</p>
         </div>
         <div class="gate-col">
           <div class="gate-col-label good mono">With Janus — deterministic gate</div>
           <div class="gate-example">
-            <div class="gate-line">GATE: scheduling_day_of_week_drift</div>
-            <div class="gate-comment"># Trigger: detected_day != approved_day</div>
-            <div class="gate-comment"># Threshold: any mismatch on > 0 records</div>
-            <div class="gate-comment"># Scope: external scheduling submissions</div>
-            <div class="gate-fired">FIRED — Tuesday→Monday drift on 14 records</div>
-            <div class="gate-comment"># Workflow stopped. Operator notified.</div>
-            <div class="gate-comment"># Decision required before apply proceeds.</div>
+            <div class="gate-line">Condition defined before deployment</div>
+            <div class="gate-line">Condition evaluated on a fact</div>
+            <div class="gate-line gate-pass">Gate fired or passed on that fact</div>
+            <div class="gate-line">Decision logged with full context</div>
           </div>
-          <p class="gate-note-text">Condition written in plain language. Fires on a fact. Operator sees exactly what triggered it. Decision and reason are logged.</p>
         </div>
       </div>
       <div class="gate-anatomy">
-        <div class="gate-anatomy-label mono">Gate contract — four fields, plain language</div>
+        <div class="gate-anatomy-label mono">How a gate works</div>
         <div class="gate-parts">
-          <div class="gate-part">
+          <div class="gate-part gate-part--trigger">
             <div class="gate-part-key mono">Trigger</div>
-            <div class="gate-part-val">What condition causes this gate to fire. Written as a plain-language rule, not a model prompt.</div>
+            <div class="gate-part-val">The condition your organization defines before deployment. Deterministic, not inferred.</div>
           </div>
-          <div class="gate-part">
+          <div class="gate-part gate-part--evaluates">
             <div class="gate-part-key mono">Evaluates</div>
-            <div class="gate-part-val">What the gate checks when it fires. Defined scope, defined data, no inference.</div>
+            <div class="gate-part-val">Defined scope and data when the gate runs. A fact, not a probability.</div>
           </div>
-          <div class="gate-part">
+          <div class="gate-part gate-part--returns">
             <div class="gate-part-key mono">Returns</div>
-            <div class="gate-part-val">What the operator sees. The fact that triggered it, the context, the decision options.</div>
+            <div class="gate-part-val">What the operator sees in plain language: what fired, the context, and the choices.</div>
           </div>
-          <div class="gate-part">
+          <div class="gate-part gate-part--decision">
             <div class="gate-part-key mono">Decision points</div>
-            <div class="gate-part-val">What happens at each operator choice. Allow, hold, override — each path logged with reason.</div>
+            <div class="gate-part-val">Each operator path — allow, hold, override — logged with reason and linked to the plan.</div>
           </div>
         </div>
       </div>
@@ -247,36 +256,42 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 <section class="sec">
   <div class="wrap">
     <div class="sec-label mono">Mission Control — Kanban</div>
-    <p class="big-serif serif" style="max-width:560px;margin-bottom:0">Every workflow. One surface.<br>Blocked means a gate fired on a fact.</p>
+    <div class="two-col" style="margin-bottom:44px">
+      <p class="big-serif serif">Every workflow.<br>One surface.</p>
+      <div class="body-text">
+        <p>Every workflow has its own context. <strong>Blocked</strong> means something needs you — open it, see exactly why, discuss it, resolve it. Related workflows stay connected without polluting each other.</p>
+        <p>Running, blocked, completed — the same pattern everywhere. Enough detail to show the operator experience, without narrowing you to one industry.</p>
+      </div>
+    </div>
     <div class="kanban-strip">
       <div class="lane">
         <div class="lane-header running mono">Running</div>
         <div class="kcard">
-          <div class="kcard-title">HR onboarding — intake</div>
+          <div class="kcard-title">Vendor approval — intake</div>
           <div class="kcard-sub mono">Stage 2 · plan generation</div>
         </div>
         <div class="kcard">
-          <div class="kcard-title">Vendor contract review</div>
+          <div class="kcard-title">Policy update</div>
           <div class="kcard-sub mono">Stage 4 · apply</div>
         </div>
       </div>
       <div class="lane">
         <div class="lane-header blocked mono">Blocked</div>
         <div class="kcard is-blocked">
-          <div class="kcard-title">Scheduling — day-of-week drift</div>
-          <div class="kcard-sub mono">Gate: scheduling_day_of_week_drift</div>
-          <div class="gate-note mono">Condition: detected_day != approved_day<br>Fired on 14 records. Workflow stopped.<br>Operator decision required.</div>
+          <div class="kcard-title">Workflow stopped</div>
+          <div class="kcard-sub mono">Gate fired · operator review required</div>
+          <div class="gate-note mono">Condition met on 14 records.<br>Human decision required.</div>
         </div>
       </div>
       <div class="lane">
         <div class="lane-header done mono">Completed</div>
         <div class="kcard is-done">
-          <div class="kcard-title">Q2 budget allocation</div>
-          <div class="kcard-sub mono">Published · ratified by operator</div>
+          <div class="kcard-title">Q4 allocation</div>
+          <div class="kcard-sub mono">Published · ratified</div>
         </div>
         <div class="kcard is-done">
-          <div class="kcard-title">Policy update — access control</div>
-          <div class="kcard-sub mono">Published · audit logged</div>
+          <div class="kcard-title">Access review</div>
+          <div class="kcard-sub mono">Closed · 3 overrides logged</div>
         </div>
       </div>
     </div>
@@ -288,11 +303,11 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <div class="sec-label mono">Architecture</div>
     <p class="big-serif serif" style="max-width:560px;margin-bottom:0">Three layers. Memory at the base.<br>Gates at every transition.</p>
     <div class="layer-stack">
-      <div class="layer l3">
-        <div class="layer-num mono">Layer 3</div>
-        <div class="layer-name">Mission Control</div>
-        <div class="layer-sub mono">operational surface — visibility, state, operator actions</div>
-        <div class="tags"><span class="tag">running</span><span class="tag blocked">blocked</span><span class="tag done">completed</span></div>
+      <div class="layer l1">
+        <div class="layer-num mono">Layer 1 · Base</div>
+        <div class="layer-name">Institutional Memory</div>
+        <div class="layer-sub mono">cards · memory graph · governance · traceability</div>
+        <div class="tags"><span class="tag">card hierarchy</span><span class="tag">memory graph</span><span class="tag">drift detection</span><span class="tag">audit trail</span></div>
       </div>
       <div class="connector"><div class="arrow"></div></div>
       <div class="layer l2">
@@ -302,11 +317,11 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
         <div class="tags"><span class="tag">workflow gates</span><span class="tag">workflow coordination</span><span class="tag">approvals</span><span class="tag">escalation</span></div>
       </div>
       <div class="connector"><div class="arrow"></div></div>
-      <div class="layer l1">
-        <div class="layer-num mono">Layer 1</div>
-        <div class="layer-name">Institutional Memory</div>
-        <div class="layer-sub mono">cards · memory graph · governance · traceability</div>
-        <div class="tags"><span class="tag">card hierarchy</span><span class="tag">memory graph</span><span class="tag">drift detection</span><span class="tag">audit trail</span></div>
+      <div class="layer l3">
+        <div class="layer-num mono">Layer 3 · Surface</div>
+        <div class="layer-name">Mission Control</div>
+        <div class="layer-sub mono">operational surface — visibility, state, operator actions</div>
+        <div class="tags"><span class="tag">running</span><span class="tag blocked">blocked</span><span class="tag done">completed</span></div>
       </div>
     <p class="body-text" style="margin-top:44px;max-width:620px">Not everything earns its place in institutional memory. Janus writes only what has been ratified — the decision, the condition that triggered it, the reason the operator gave. The vault grows by deliberate act, not accumulation.</p>
   </div>
@@ -314,29 +329,29 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-label mono">Critical-thinking hygiene</div>
+    <div class="sec-label mono">The assembly line</div>
     <div class="two-col">
-      <p class="big-serif serif">The system challenges its own output before you approve it.</p>
+      <p class="big-serif serif">The assembly line keeps your system clean.</p>
       <div class="body-text">
-        <p>Hygiene is not a review step bolted on at the end. It runs on intent, on plans, on memory — before anything reaches a human gate. Weak inputs are surfaced with their weaknesses visible. The operator approves a plan that has been challenged, not one that has been generated.</p>
+        <p>Nano agents run continuously across your workflows and memory. They maintain the structure around your cards, your gates, and your vault — so when a gate fires or an operator queries, the context is already clean, current, and ready to act on. No archaeology. No interpretation. Just the information you need to decide.</p>
       </div>
     </div>
-    <div class="hygiene-list">
-      <div class="hygiene-item">
-        <div class="hygiene-key mono">Intent</div>
-        <div class="hygiene-val">Before a plan is generated, the intent is scored across structured bins. <strong>Ambiguous inputs are surfaced and resolved — not passed through.</strong></div>
+    <div class="prep-list">
+      <div class="prep-item prep-item--context">
+        <div class="prep-key mono">Context</div>
+        <div class="prep-val">Every workflow arrives structured. Ambiguous inputs are resolved before they reach a gate so the operator is never asked to decide on incomplete information.</div>
       </div>
-      <div class="hygiene-item">
-        <div class="hygiene-key mono">Plan</div>
-        <div class="hygiene-val">The plan goes through the same structured evaluation before ratification. <strong>Weak signals are flagged. The operator approves what has been challenged.</strong></div>
+      <div class="prep-item prep-item--documentation">
+        <div class="prep-key mono">Documentation</div>
+        <div class="prep-val">Workflow and gate documentation is verified before execution. If something is missing or stale the assembly line surfaces it before the gate fires.</div>
       </div>
-      <div class="hygiene-item">
-        <div class="hygiene-key mono">Memory</div>
-        <div class="hygiene-val">Stale, contradictory, or low-confidence memory is pruned before it influences a live workflow. <strong>Context that reaches execution is clean context.</strong></div>
+      <div class="prep-item prep-item--signal">
+        <div class="prep-key mono">Signal</div>
+        <div class="prep-val">Noise is cleared before the gate reaches a human. What the operator sees is what triggered the gate — nothing more, nothing less.</div>
       </div>
-      <div class="hygiene-item">
-        <div class="hygiene-key mono">Drift</div>
-        <div class="hygiene-val">Janus tracks intent from the moment a workflow begins. When agent output drifts from the ratified plan, <strong>the system surfaces it before it ships.</strong></div>
+      <div class="prep-item prep-item--memory">
+        <div class="prep-key mono">Memory</div>
+        <div class="prep-val">Only ratified content enters the long-term vault. The assembly line curates what persists so future workflows inherit clean context, not accumulated drift.</div>
       </div>
     </div>
   </div>
@@ -352,8 +367,8 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 <footer>
   <div class="footer-l mono">DTM — Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 · Ottawa, ON</span></div>
   <nav class="footer-nav" aria-label="Footer">
-    <a href="company.html">Company</a>
     <a href="product.html">Product</a>
+    <a href="company.html">Company</a>
     <a href="roadmap.html">Roadmap</a>
   </nav>
 </footer>

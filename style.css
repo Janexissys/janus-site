@@ -717,7 +717,7 @@ h1 em {
 
 .roadmap-item {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 112px 1fr;
   background: var(--border);
 }
 
@@ -755,6 +755,15 @@ h1 em {
   color: var(--muted);
   font-weight: 300;
   line-height: 1.75;
+}
+
+.roadmap-body p + p {
+  margin-top: 12px;
+}
+
+.roadmap-lead {
+  color: var(--text) !important;
+  font-weight: 400;
 }
 
 /* ---------- Footer ---------- */
