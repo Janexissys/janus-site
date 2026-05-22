@@ -128,6 +128,20 @@ h1 em{font-style:italic;color:var(--accent)}
 .kcard.is-done .kcard-title{color:var(--completed-t)}
 .kcard.is-done .kcard-sub{color:rgba(74,170,120,0.5)}
 .gate-note{font-family:'Geist Mono',monospace;font-size:9px;color:var(--blocked-t);border-top:0.5px solid var(--blocked-b);margin-top:6px;padding-top:8px;line-height:1.5}
+.kcard-parent{border-color:var(--border-mid);padding-bottom:8px}
+.kcard-parent-label{font-family:'Geist Mono',monospace;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.kcard-children{margin-top:4px;padding-left:10px;border-left:1px solid var(--border-mid)}
+.kcard-child{background:var(--bg);border:0.5px solid var(--border);border-radius:3px;padding:7px 9px;margin-bottom:4px;font-size:10px}
+.kcard-child:last-child{margin-bottom:0}
+.kcard-child-title{color:var(--muted);font-weight:500;margin-bottom:2px}
+.kcard-child-sub{font-family:'Geist Mono',monospace;font-size:8px;color:var(--dim)}
+.kcard-child.is-active{border-color:rgba(200,169,110,0.35);background:rgba(200,169,110,0.06)}
+.kcard-child.is-active .kcard-child-title{color:var(--text)}
+.kcard-child.is-blocked{border-color:var(--blocked-b);background:rgba(61,26,8,0.35)}
+.kcard-child.is-blocked .kcard-child-title{color:var(--blocked-t)}
+.kcard-child.is-waiting{opacity:0.55}
+.kanban-caption{margin-top:32px;max-width:720px;font-size:13px;color:var(--muted);font-weight:300;line-height:1.75}
+.kanban-caption strong{color:var(--text);font-weight:500}
 
 /* ASSEMBLY */
 .assembly-row{display:flex;align-items:stretch;gap:1px;margin-top:44px;background:var(--border);border:0.5px solid var(--border);border-radius:5px;overflow:hidden}
@@ -164,6 +178,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
   <div class="nav-left mono"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
   <ul class="nav-links">
     <li><a href="product.html" class="nav-link--active">Product</a></li>
+    <li><a href="technical.html">Technical</a></li>
     <li><a href="company.html">Company</a></li>
     <li><a href="roadmap.html">Roadmap</a></li>
   </ul>
@@ -255,20 +270,31 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-label mono">Mission Control — Kanban</div>
+    <div class="sec-label mono">Cards and Mission Control</div>
     <div class="two-col" style="margin-bottom:44px">
-      <p class="big-serif serif">Every workflow.<br>One surface.</p>
+      <p class="big-serif serif">Parent and child.<br>One workflow surface.</p>
       <div class="body-text">
-        <p>Every workflow has its own context. <strong>Blocked</strong> means something needs you — open it, see exactly why, discuss it, resolve it. Related workflows stay connected without polluting each other.</p>
-        <p>Running, blocked, completed — the same pattern everywhere. Enough detail to show the operator experience, without narrowing you to one industry.</p>
+        <p>Work is organized in a <strong>card hierarchy</strong>. Each card is a governed unit — its own context, its own chat, its own place in the workflow. Click a card and you work inside that silo. When you need wider context, search across other cards in the same workflow — connected, not isolated.</p>
+        <p>Child cards inherit the governance of their parent. When a gate fires upstream, it propagates downstream. When documentation changes at the parent, dependent cards are notified. Coherence without manually wiring every relationship.</p>
       </div>
     </div>
     <div class="kanban-strip">
       <div class="lane">
         <div class="lane-header running mono">Running</div>
-        <div class="kcard">
-          <div class="kcard-title">Vendor approval — intake</div>
+        <div class="kcard kcard-parent">
+          <div class="kcard-parent-label mono">Parent workflow</div>
+          <div class="kcard-title">Vendor approval</div>
           <div class="kcard-sub mono">Stage 2 · plan generation</div>
+          <div class="kcard-children">
+            <div class="kcard-child is-active">
+              <div class="kcard-child-title">Intake review</div>
+              <div class="kcard-child-sub mono">Chat active · this card</div>
+            </div>
+            <div class="kcard-child">
+              <div class="kcard-child-title">Plan generation</div>
+              <div class="kcard-child-sub mono">Waiting on prior gate</div>
+            </div>
+          </div>
         </div>
         <div class="kcard">
           <div class="kcard-title">Policy update</div>
@@ -277,17 +303,35 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
       </div>
       <div class="lane">
         <div class="lane-header blocked mono">Blocked</div>
-        <div class="kcard is-blocked">
-          <div class="kcard-title">Workflow stopped</div>
-          <div class="kcard-sub mono">Gate fired · operator review required</div>
-          <div class="gate-note mono">Condition met on 14 records.<br>Human decision required.</div>
+        <div class="kcard kcard-parent is-blocked">
+          <div class="kcard-parent-label mono">Parent workflow</div>
+          <div class="kcard-title">External submission</div>
+          <div class="kcard-sub mono">Gate fired · operator review</div>
+          <div class="gate-note mono">Condition met on 14 records.<br>Propagates to child tasks below.</div>
+          <div class="kcard-children">
+            <div class="kcard-child is-blocked">
+              <div class="kcard-child-title">Validate records</div>
+              <div class="kcard-child-sub mono">Blocked · inherited from parent</div>
+            </div>
+            <div class="kcard-child is-waiting">
+              <div class="kcard-child-title">Apply changes</div>
+              <div class="kcard-child-sub mono">Instructions held until gate clears</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="lane">
         <div class="lane-header done mono">Completed</div>
-        <div class="kcard is-done">
+        <div class="kcard kcard-parent is-done">
+          <div class="kcard-parent-label mono">Parent workflow</div>
           <div class="kcard-title">Q4 allocation</div>
           <div class="kcard-sub mono">Published · ratified</div>
+          <div class="kcard-children">
+            <div class="kcard-child">
+              <div class="kcard-child-title">Final sign-off</div>
+              <div class="kcard-child-sub mono">Completed</div>
+            </div>
+          </div>
         </div>
         <div class="kcard is-done">
           <div class="kcard-title">Access review</div>
@@ -295,6 +339,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
         </div>
       </div>
     </div>
+    <p class="kanban-caption"><strong>Click any card</strong> to open its chat — siloed working memory for that unit of work, searchable across the workflow when you need the full picture. <strong>Blocked</strong> on a parent means children do not advance: the next instruction does not release until the gate is cleared.</p>
   </div>
 </section>
 
@@ -368,6 +413,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
   <div class="footer-l mono">DTM — Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 · Ottawa, ON</span></div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="product.html">Product</a>
+    <a href="technical.html">Technical</a>
     <a href="company.html">Company</a>
     <a href="roadmap.html">Roadmap</a>
   </nav>

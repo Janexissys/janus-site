@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Janus DTM OS — Technical overview. Stack, architecture, gates, memory, and API compatibility.">
+  <title>Technical — DTM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
+    <ul class="nav-links">
+      <li><a href="product.html">Product</a></li>
+      <li><a href="technical.html" class="nav-link--active">Technical</a></li>
+      <li><a href="company.html">Company</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+
+    <section class="subpage-hero">
+      <div class="wrap">
+        <p class="eyebrow">Technical</p>
+        <h1>Janus DTM OS</h1>
+        <p class="hero-sub">Governance infrastructure you can audit — stack, architecture, gates, and memory.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Stack</p>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Backend</th><td>FastAPI, Python 3.12, Pydantic v2</td></tr>
+            <tr><th>Persistence</th><td>SQLite with aiosqlite (async, WAL)</td></tr>
+            <tr><th>Vector memory</th><td>ChromaDB — 384-dimensional embeddings</td></tr>
+            <tr><th>LLM</th><td>Model-agnostic. Anthropic Claude in private beta. Ollama for local fallback. Bring your own via API.</td></tr>
+            <tr><th>Embeddings</th><td>nomic-embed-text; SentenceTransformers fallback (all-MiniLM-L6-v2)</td></tr>
+            <tr><th>Frontend</th><td>React, TypeScript, Vite, Radix UI, Tailwind CSS 4</td></tr>
+            <tr><th>CLI</th><td>Python Typer + Rich</td></tr>
+            <tr><th>Tests</th><td>pytest (190+ tests)</td></tr>
+          </tbody>
+        </table>
+        <p class="body-text" style="margin-top:20px;max-width:640px">Dev defaults: backend <strong>:10000</strong>, Mission Control <strong>:3000</strong> (proxies <code style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted)">/api</code>).</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Architecture</p>
+        <div class="two-col" style="margin-bottom:0">
+          <p class="big-serif">Three layers.<br>Memory at the base.</p>
+          <p class="body-text">Mission Control sits on top. Coordination runtime in the middle. Institutional memory anchors everything below. Layer 3 is how operators see and act — layers 1–2 are what the organization remembers and may do.</p>
+        </div>
+
+        <h2 class="layer-heading">Layer 1 — Institutional Memory</h2>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>STM vault</th><td>Workflow-scoped working memory — per card, searchable within workflow</td></tr>
+            <tr><th>LTM vault</th><td>Ratified content only — doctrine, decisions, overrides</td></tr>
+            <tr><th>MC engine</th><td>Twelve-bin meta-cognitive scoring; promotion at MC ≥ 8.5</td></tr>
+            <tr><th>Vector store</th><td>Semantic recall when vector search is enabled</td></tr>
+            <tr><th>Governance</th><td>Policy, doctrine, gate definitions</td></tr>
+            <tr><th>Audit</th><td>Traceability on every transition</td></tr>
+          </tbody>
+        </table>
+
+        <h2 class="layer-heading">Layer 2 — Coordination Runtime</h2>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Workflow contract</th><td>Governed phase machine — intake through publish</td></tr>
+            <tr><th>Assembly line</th><td>Six-agent pipeline prepares work before human gates</td></tr>
+            <tr><th>Gate evaluator</th><td>Normalized, auditable authorization decisions</td></tr>
+            <tr><th>Plan store</th><td>Durable plans on SQLite (WAL)</td></tr>
+          </tbody>
+        </table>
+
+        <h2 class="layer-heading">Layer 3 — Mission Control</h2>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Operator API</th><td>Mission view, drill-in, blocked packet, chat</td></tr>
+            <tr><th>Frontend</th><td>Mission + Chat — React, TypeScript</td></tr>
+            <tr><th>Projections</th><td>Card catalog mapped to Kanban lanes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Cards</p>
+        <div class="two-col">
+          <p class="big-serif serif">The unit of work.<br>The scope of chat.</p>
+          <div class="body-text">
+            <p>The card system is central to Janus. Each card is a governed unit with its own context and chat. <strong>Click a card</strong> to work inside that silo. Search across other cards in the same workflow when you need the full picture — connected, not isolated.</p>
+            <p>Mission Control maps the card catalog to Kanban lanes. The board is the surface; the card hierarchy is the architecture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Card hierarchy</p>
+        <p class="body-text" style="max-width:720px;margin-top:0">Work is organized in a <strong>parent and child</strong> hierarchy. Child cards inherit parent governance. When a gate fires upstream, it propagates downstream. When documentation changes at the parent, dependent cards are notified — coherence across multi-stage work without manually wiring every relationship.</p>
+        <table class="spec-table" style="margin-top:28px">
+          <tbody>
+            <tr><th>Per card</th><td>Own context, own chat, own memory scope within the workflow</td></tr>
+            <tr><th>Parent → child</th><td>Governance and gate state inherit downstream</td></tr>
+            <tr><th>Blocked parent</th><td>Child instructions do not release until the gate clears</td></tr>
+            <tr><th>Cross-card</th><td>Search and recall within the workflow, not org-wide noise</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Governed commands</p>
+        <div class="two-col">
+          <p class="big-serif serif">RISC-style execution.<br>Not prompt soup.</p>
+          <div class="body-text">
+            <p>Each task is a discrete agent or command slot in the workflow — structured prompting per step, not a monolithic instruction dump that bypasses policy.</p>
+            <p><strong>No releasing the next instruction until the previous gate has cleared.</strong> If upstream is blocked, downstream sees held work, not silent drift.</p>
+            <p class="pull">Small, composable, gated commands — auditable progression tied to cards and gate decisions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Workflows</p>
+        <div class="two-col">
+          <p class="big-serif serif">Registered under governance.<br>Not bolted on after.</p>
+          <div class="body-text">
+            <p>Janus does not replace your agents or automation stack. It registers work inside a governance layer your organization controls.</p>
+          </div>
+        </div>
+        <ol class="tech-steps">
+          <li><strong>Ground the organization</strong> — Policies, contracts, SOPs, and product documentation are ingested and structured so the system knows your rules before anything executes.</li>
+          <li><strong>Declare the workflow</strong> — Stable identity, owning team, explicit stages, and required artifacts. Each stage is a checkpoint with an audit trail.</li>
+          <li><strong>Attach gates</strong> — Danger points you define in advance: apply, publish, external effects, missing governance artifacts.</li>
+          <li><strong>Ratify and run</strong> — Workflows are created and hardened inside the layer — not around it. Your infrastructure executes once the gate allows it.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Governed sequence</p>
+        <p class="big-serif serif" style="max-width:720px;margin-bottom:0">Intake → refine intent → plan → negotiate → approve → apply → verify → publish.</p>
+        <p class="body-text" style="margin-top:28px;max-width:680px">Each step is a named checkpoint. Each transition is logged. Your organization defines required artifacts and danger points before deployment; Janus enforces them at runtime. Representative surface: <span style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted)">POST /api/v1/workflow/ritual/*</span> and operator routes under <span style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted)">/api/v1/operator/</span>.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Gates</p>
+        <div class="two-col">
+          <p class="big-serif serif">A contract at a danger point.<br>Not a model score.</p>
+          <div class="body-text">
+            <p>Before deployment, your organization writes conditions that require human review in plain language — auditable facts, not vague risk categories.</p>
+            <p>When a condition is true, the gate fires. The workflow stops. The operator sees what triggered it and decides. Every path is logged.</p>
+            <p class="pull">MC scoring informs readiness. The gate authorizes. That separation is what makes the system defensible in audit.</p>
+          </div>
+        </div>
+        <table class="spec-table">
+          <thead>
+            <tr><th>Outcome</th><th>What happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Allow</th><td>Execution may proceed</td></tr>
+            <tr><th>Clarify</th><td>Not authorized yet — more specificity or evidence required</td></tr>
+            <tr><th>Human review</th><td>Operator decides: approve, reject, clarify, or allow with debt</td></tr>
+            <tr><th>Allow with debt</th><td>Proceeds with a logged obligation to resolve later</td></tr>
+            <tr><th>Block</th><td>Execution does not proceed</td></tr>
+          </tbody>
+        </table>
+        <p class="body-text" style="margin-top:20px;max-width:640px">The authorization outcome is deterministic given the declared condition.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Memory</p>
+        <div class="two-col">
+          <p class="big-serif serif">Two vaults.<br>One promotion threshold.</p>
+          <div class="body-text">
+            <p><strong>Working memory is workflow-scoped.</strong> Each card opens its own chat — siloed context. Search across other cards in the same workflow when needed. Long-term memory holds ratified content only — decisions, overrides, doctrine, governance artifacts.</p>
+            <p>Promotion to LTM requires <strong>MC ≥ 8.5</strong> across twelve structured bins. Below that, material stays in working memory or is pruned. The vault grows by deliberate act, not accumulation.</p>
+            <p>Vector search runs via ChromaDB when semantic recall is enabled.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Assembly line</p>
+        <p class="body-text" style="max-width:680px;margin-top:0;margin-bottom:28px">Continuous hygiene across workflows and memory — so when a gate fires or someone queries the vault, context is already clean, current, and actionable.</p>
+        <table class="spec-table">
+          <tbody>
+            <tr><th>Caretaker</th><td>Intake validation and intent gate</td></tr>
+            <tr><th>Gardener</th><td>Content structure — background, proposal, action items</td></tr>
+            <tr><th>Mercury</th><td>Memory routing — STM vs LTM at MC ≥ 8.5</td></tr>
+            <tr><th>Sentinel</th><td>Policy audit — PII, safety, compliance</td></tr>
+            <tr><th>Conductor</th><td>Workflow state — done, quarantine, archived</td></tr>
+            <tr><th>Scribe</th><td>Decision capture — ledger write and audit trail</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Proof</p>
+        <p class="body-text" style="max-width:680px;margin-top:0">After seeding twenty-six company hygiene cards, the operator chat endpoint was asked:</p>
+        <div class="tech-proof">
+          <p class="tech-proof-query">&ldquo;what contracts does DTM need?&rdquo;</p>
+          <p class="body-text" style="margin:0;max-width:none">The response surfaced the NDA, Contractor Agreement, and Client Services Agreement — in priority order, with risk framing from the governance catalog. Not a generic LLM answer. Institutional memory answering from structured, retrievable organizational knowledge. Verified in the test suite; live demo available during technical review.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Compatibility</p>
+        <div class="body-text" style="max-width:680px">
+          <p>Janus sits above your existing agent infrastructure. Any HTTP client can call the API surface. LLM provider is environment-configurable — Anthropic in private beta, Ollama locally, or your own via the fallback chain.</p>
+          <p>Phase 1 integration surface is HTTP. Native SaaS connectors are on the roadmap.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="sec-label">Private beta</p>
+        <p class="big-serif serif" style="max-width:560px">Janus DTM OS is in private beta.<br>Access is by invitation.</p>
+        <div class="tech-cta-row">
+          <a href="#" class="tech-cta">Request access</a>
+          <a href="#" class="tech-cta tech-cta--ghost">Book a technical review</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-l">DTM — Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 &middot; Ottawa, ON</span></div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="product.html">Product</a>
+      <a href="technical.html">Technical</a>
+      <a href="company.html">Company</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var links = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', function() {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        links.classList.toggle('nav-links--open');
+      });
+      links.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          toggle.setAttribute('aria-expanded', 'false');
+          links.classList.remove('nav-links--open');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

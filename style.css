@@ -766,6 +766,153 @@ h1 em {
   font-weight: 400;
 }
 
+/* ---------- Technical spec tables ---------- */
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 28px;
+  border: 0.5px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.spec-table th,
+.spec-table td {
+  padding: 14px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.spec-table tr:last-child th,
+.spec-table tr:last-child td {
+  border-bottom: none;
+}
+
+.spec-table th {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-weight: 500;
+  background: var(--bg3);
+  width: 28%;
+}
+
+.spec-table td {
+  background: var(--bg2);
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.spec-table td strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.layer-heading {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  color: var(--text);
+  margin-top: 44px;
+  margin-bottom: 4px;
+}
+
+.layer-heading:first-of-type {
+  margin-top: 28px;
+}
+
+.tech-steps {
+  margin-top: 28px;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: tech-step;
+}
+
+.tech-steps li {
+  counter-increment: tech-step;
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.tech-steps li::before {
+  content: counter(tech-step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+.tech-steps li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.tech-proof {
+  margin-top: 28px;
+  padding: 20px 22px;
+  background: var(--bg3);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 5px;
+  border-left: 2px solid var(--accent);
+}
+
+.tech-proof-query {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.tech-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.tech-cta {
+  display: inline-block;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: 0.5px solid var(--accent);
+  transition: opacity 0.15s ease;
+}
+
+.tech-cta:hover {
+  opacity: 0.88;
+}
+
+.tech-cta--ghost {
+  color: var(--accent);
+  background: transparent;
+}
+
+.tech-cta--ghost:hover {
+  background: var(--accent-dim);
+  opacity: 1;
+}
+
 /* ---------- Footer ---------- */
 
 footer {
@@ -907,6 +1054,25 @@ footer {
 
   .roadmap-body {
     padding: 8px 20px 24px;
+  }
+
+  .spec-table th {
+    display: block;
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 6px;
+  }
+
+  .spec-table td {
+    display: block;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 16px;
+  }
+
+  .tech-cta-row {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   footer {
