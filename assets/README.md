@@ -1,30 +1,23 @@
-# Demo video assets (Phase B)
+# Demo video
 
-When the product demo is recorded, add files here and update the HTML embed on `index.html` and `product.html` (`#demo`).
+The product walkthrough is hosted on **Vimeo** (video ID `1195379221`) and embedded on `index.html` and `product.html` (`#demo`) inside `.demo-video-embed`.
 
-## Files
+To change the video, update the iframe `src` on both pages (or swap to a self-hosted file below).
+
+## Self-hosted alternative (optional)
 
 | File | Purpose |
 |------|---------|
 | `demo.mp4` | Primary walkthrough (~60–90s), H.264, GitHub Pages–friendly size |
-| `demo-poster.jpg` | Poster frame for `<video poster="...">` and slow networks |
+| `demo-poster.jpg` | Poster frame for `<video poster="...">` |
 
-Optional: host on YouTube/Vimeo and replace the `<video>` block with an iframe.
-
-## Embed steps
-
-1. Place `demo.mp4` and `demo-poster.jpg` in this directory.
-2. On **index.html**, inside `.demo-video-slot`, replace the placeholder with:
+Replace `.demo-video-embed` with:
 
 ```html
-<video class="demo-video" controls playsinline muted loop poster="assets/demo-poster.jpg">
+<video class="demo-video" controls playsinline poster="assets/demo-poster.jpg">
   <source src="assets/demo.mp4" type="video/mp4">
 </video>
 ```
-
-3. On **product.html** (`#demo`), same replacement inside `.demo-video-slot`.
-4. Remove or hide the “Recording in progress” label and storyboard-only note if you want video-only above the fold (storyboard can remain below).
-5. Optional: `muted loop` on home only for autoplay-friendly hero (respect `prefers-reduced-motion` in a follow-up if needed).
 
 ## Recording checklist
 
