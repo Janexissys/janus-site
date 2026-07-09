@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About DTM — who we are, what we're building, and the institutions backing our mission.">
+  <title>About — DTM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
+    <ul class="nav-links">
+      <li><a href="product.html">Product</a></li>
+      <li><a href="technical.html">Technical</a></li>
+      <li><a href="company.html">Company</a></li>
+      <li><a href="roadmap.html">Roadmap</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="https://blog.dtm-system.com" target="_blank" rel="noopener">Blog</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">About DTM</p>
+        <p class="hero-brand-tagline">AI governance infrastructure for institutions that can't afford failure.</p>
+        <p class="hero-plain">We're building the decision boundary layer for AI workflows in regulated industries.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="page-cards">
+
+          <div class="page-card">
+            <span class="page-card-num">01</span>
+            <h2 class="page-card-title">Our Mission</h2>
+            <p class="page-card-desc">AI governance isn't optional—it's infrastructure. We're committed to building systems that put humans in control, record every decision, and sustain institutional memory. Janus OS makes governed AI workflows the default, not the exception.</p>
+          </div>
+
+          <div class="page-card">
+            <span class="page-card-num">02</span>
+            <h2 class="page-card-title">Vector Institute — FastLane</h2>
+            <p class="page-card-desc">Member of Vector Institute's FastLane program, supporting Canadian AI startups in governance, safety, and responsible innovation. Building infrastructure for AI risk management at scale.</p>
+          </div>
+
+          <div class="page-card">
+            <span class="page-card-num">03</span>
+            <h2 class="page-card-title">The Accelerator Centre — AC:Icubate</h2>
+            <p class="page-card-desc">Member of AC:Icubate, focused on building accountable AI systems and governance infrastructure that serves risk, compliance, and operations leaders in regulated industries.</p>
+          </div>
+
+          <div class="page-card">
+            <span class="page-card-num">04</span>
+            <h2 class="page-card-title">Governance is Not Optional</h2>
+            <p class="page-card-desc">In finance, healthcare, defense, and critical infrastructure, AI decisions carry weight. Janus sustains the institutions that trust it by ensuring every action is traceable, recoverable, and governed by defined policy.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-l">DTM — Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 &middot; Ottawa, ON</span></div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="product.html">Product</a>
+      <a href="technical.html">Technical</a>
+      <a href="company.html">Company</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+      <a href="https://blog.dtm-system.com" target="_blank" rel="noopener">Blog</a>
+    </nav>
+    <div class="footer-supporters">
+      <span class="supporters-text">Supported by</span>
+      <div class="supporters-logos">
+        <a href="https://vectorinstitute.ai/fastlane-program/" target="_blank" rel="noopener" title="Vector Institute FastLane Program">
+          <img src="assets/vector-fastlane-badge.png" alt="Vector Institute FastLane" class="supporter-logo">
+        </a>
+        <a href="https://accel.ca/" target="_blank" rel="noopener" title="The Accelerator Centre">
+          <img src="assets/ac-icubate-logo.webp" alt="The Accelerator Centre" class="supporter-logo">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var links = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', function() {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        links.classList.toggle('nav-links--open');
+      });
+      links.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          toggle.setAttribute('aria-expanded', 'false');
+          links.classList.remove('nav-links--open');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

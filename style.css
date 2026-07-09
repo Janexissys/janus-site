@@ -1396,6 +1396,42 @@ footer {
   color: var(--accent);
 }
 
+/* Supporter logos section */
+.footer-supporters {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-left: 0.5px solid var(--border);
+  margin-left: 2rem;
+  padding-left: 2rem;
+}
+
+.supporters-text {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  white-space: nowrap;
+}
+
+.supporters-logos {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.supporter-logo {
+  max-height: 40px;
+  width: auto;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.supporter-logo:hover {
+  opacity: 1;
+}
+
 /* ============================================
    RESPONSIVE — MOBILE (< 768px)
    ============================================ */
@@ -1493,6 +1529,32 @@ footer {
   .agent-sep {
     width: auto;
     height: 1px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 20px;
+  }
+
+  .footer-supporters {
+    flex-direction: column;
+    gap: 0.5rem;
+    border-left: none;
+    border-top: 0.5px solid var(--border);
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 1rem;
+    width: 100%;
+  }
+
+  .supporters-logos {
+    gap: 1rem;
+  }
+
+  .supporter-logo {
+    max-height: 35px;
   }
 
   .hygiene-item {
