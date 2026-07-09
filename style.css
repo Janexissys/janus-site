@@ -929,7 +929,7 @@ h1 em {
   font-size: 11px;
   letter-spacing: 0.04em;
   line-height: 1.65;
-  color: var(--muted);
+  color: var(--text);
   max-width: 720px;
   margin-bottom: 32px;
 }
@@ -1432,6 +1432,69 @@ footer {
   opacity: 1;
 }
 
+/* About page prominent supporters section */
+.about-supporters {
+  margin-top: 88px;
+  padding: 64px 48px;
+  border: 0.5px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg2);
+  text-align: center;
+}
+
+.about-supporters-title {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.about-supporters-logos {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-supporter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.about-supporter-logo {
+  max-height: 100px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.about-supporter-logo:hover {
+  opacity: 1;
+}
+
+.about-supporter-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.about-supporter-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 240px;
+}
+
+
+
 /* ============================================
    RESPONSIVE — MOBILE (< 768px)
    ============================================ */
@@ -1555,6 +1618,22 @@ footer {
 
   .supporter-logo {
     max-height: 35px;
+  }
+
+  .about-supporters {
+    padding: 48px 20px;
+  }
+
+  .about-supporters-logos {
+    gap: 24px;
+  }
+
+  .about-supporter-logo {
+    max-height: 80px;
+  }
+
+  .about-supporter-desc {
+    max-width: 100%;
   }
 
   .hygiene-item {
