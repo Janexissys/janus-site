@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="See a gate stop an AI workflow, review in grounded chat, and clear it with a logged human decision — Janus for regulated industries.">
+<link rel="canonical" href="https://dtm-system.com/product.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Product — DTM">
+<meta property="og:description" content="See a gate stop an AI workflow, review in grounded chat, and clear it with a logged human decision — Janus for regulated industries.">
+<meta property="og:url" content="https://dtm-system.com/product.html">
+<meta property="og:image" content="https://dtm-system.com/assets/vector-fastlane-badge.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Product — DTM">
+<meta name="twitter:description" content="See a gate stop an AI workflow, review in grounded chat, and clear it with a logged human decision — Janus for regulated industries.">
+<meta name="twitter:image" content="https://dtm-system.com/assets/vector-fastlane-badge.png">
 <title>Product — DTM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,19 +149,25 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 .footer-nav a{font-family:'Geist Mono',monospace;font-size:10px;color:var(--dim);text-decoration:none}
 .footer-nav a:hover{color:var(--muted)}
 </style>
+<link rel="icon" type="image/png" href="assets/vector-fastlane-badge.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
-  <div class="nav-left mono"><strong>DTM</strong> — Dynamic Trajectory Memory</div>
+  <a href="index.html" class="nav-left mono"><strong>DTM</strong> — Dynamic Trajectory Memory</a>
   <ul class="nav-links">
     <li><a href="product.html" class="nav-link--active">Product</a></li>
     <li><a href="technical.html">Technical</a></li>
     <li><a href="company.html">Company</a></li>
     <li><a href="roadmap.html">Roadmap</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="https://blog.dtm-system.com" target="_blank" rel="noopener">Blog</a></li>
   </ul>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <main>
@@ -267,7 +283,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 <section class="product-intro-strip">
   <div class="wrap">
     <p class="hero-plain">Janus stops unapproved AI actions and records who approved them — before they hit production.</p>
-    <p class="hero-icp">Built for Risk, Compliance, and IT leaders in highly regulated industries — finance, healthcare, defense, and critical infrastructure.</p>
+    <p class="hero-icp">Designed for Risk, Compliance, and IT leaders in highly regulated industries — finance, healthcare, defense, and critical infrastructure.</p>
     <p class="dogfood-text" style="margin-top:24px"><span class="dogfood-eyebrow" style="margin-right:14px">Dogfood</span>DTM runs on Janus. Every decision we make is governed by our own institutional memory.</p>
   </div>
 </section>
@@ -385,6 +401,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
         <div class="layer-sub mono">operational surface — visibility, state, operator actions</div>
         <div class="tags"><span class="tag">running</span><span class="tag blocked">blocked</span><span class="tag done">completed</span></div>
       </div>
+    </div>
     <p class="body-text" style="margin-top:44px;max-width:620px">Not everything earns its place in institutional memory. Janus writes only what has been ratified — the decision, the condition that triggered it, the reason the operator gave. The vault grows by deliberate act, not accumulation.</p>
   </div>
 </section>
@@ -422,6 +439,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
 <div class="closing">
   <p class="closing-h serif">Workflow tools move tasks.<br>Janus stabilizes institutions.</p>
   <p class="closing-sub">Governance, memory, and continuity built into every workflow from the start. Not inferred. Defined.</p>
+  <p style="margin-top:32px"><a href="contact.html" class="btn-primary">Talk to us</a></p>
 </div>
 
 </main>
@@ -434,6 +452,7 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     <a href="company.html">Company</a>
     <a href="roadmap.html">Roadmap</a>
     <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
     <a href="https://blog.dtm-system.com" target="_blank" rel="noopener">Blog</a>
   </nav>
   <div class="footer-supporters">
@@ -448,6 +467,25 @@ footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-b
     </div>
   </div>
 </footer>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', function() {
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('nav-links--open');
+    });
+    links.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        toggle.setAttribute('aria-expanded', 'false');
+        links.classList.remove('nav-links--open');
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
