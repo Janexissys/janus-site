@@ -1,35 +1,36 @@
-# DTM — marketing site (janus-site)
+# DTM - marketing site (janus-site)
 
-Static single-page site for **DTM (Dynamic Trajectory Memory)** — the public-facing company and thesis — and **Janus DTM OS**, the governance-first AI operating system. **Arbiter** is described on-page as the intent-clarification ritual (human and Arbiter align before execution).
+Multi-page static site for **DTM (Dynamic Trajectory Memory)** and **Janus OS**. Served from the repository root on GitHub Pages.
 
 ## URLs
 
 | What | URL |
 |------|-----|
-| **GitHub username** | janusadmin |
-| **Live site (GitHub Pages)** | https://janusadmin.github.io/janus-site/ |
-| **Source repository** | https://github.com/janusadmin/janus-site |
+| **Live site** | https://dtm-system.com |
+| **Source repository** | https://github.com/Janexissys/janus-site |
 
-The deployed site follows this repo’s `index.html` (DTM positioning). If you add a custom domain, update this table and any hosting settings (for example a `CNAME` file for GitHub Pages).
+Custom domain: `CNAME` is `dtm-system.com`.
 
 ## What’s in this repo
 
-- **`index.html`** — One long landing page: hero, problem, three-layer system overview, principles, Arbiter ritual (six steps), evidence / Greenfield narrative, founder, contact, footer. Includes a small inline script for the mobile nav toggle.
-- **`style.css`** — Layout and styling (Inter from Google Fonts, responsive rules from ~768px down).
+- **`index.html`**, **`product.html`**, **`company.html`**, **`about.html`**, **`roadmap.html`**, **`technical.html`**, **`contact.html`** - public pages with shared nav and footer
+- **`style.css`** - layout and styling (Geist Mono, Instrument Serif, DM Sans; responsive rules from ~768px)
+- **`blog.html`** - redirect to https://blog.dtm-system.com
 
-There is no build step, framework, or package manager: open the files in a browser or deploy the folder as static assets.
+There is no build step or package manager: serve the folder as static assets.
 
 ## Local preview
 
-From this directory, serve static files so asset paths behave like production:
+From this directory:
 
-```powershell
-# Python 3
+```bash
 python -m http.server 8080
 ```
 
-Then open http://localhost:8080/
+Open http://localhost:8080/
+
+Preview at the domain root (not under a `/janus-site/` subpath) so paths match production.
 
 ## Deploying
 
-This repo is set up for **GitHub Pages** (the live URL above matches the default `https://<org>.github.io/<repo>/` pattern). Pushes to the branch GitHub Pages is configured to use will update the site.
+Merging to `main` publishes to https://dtm-system.com when GitHub Pages is configured for branch `main`, folder root. **Deploy only after Jesse approves that slice’s preview and PR.**
