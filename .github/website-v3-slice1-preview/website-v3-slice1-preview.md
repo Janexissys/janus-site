@@ -3,7 +3,7 @@
 **Branch:** `cursor/website-v3-slice1-7348`  
 **Base:** `d8ae75da24cff1f7c4ad947de7291425c5e38a82` (`d8ae75d`)  
 **Content reviewed (copy):** `523a8a550f4ce972585665b5684fc8db217ce75e` (`523a8a5`)  
-**Preview re-shot + nav CSS fix:** `a751763b949c520d58068b20f72350d92f73aca1` (`a751763`)
+**Preview re-shot + nav CSS fix:** `63061a6db1e5bf000841f571a2b9773d8b26293d` (`63061a6`)
 **Live vs main (step A):** All seven pages matched `origin/main` at build start.
 
 This file and the PNGs beside it are internal review material. They are not part of the public site.
