@@ -2,7 +2,8 @@
 
 **Branch:** `cursor/website-v3-slice1-7348`  
 **Base:** `d8ae75da24cff1f7c4ad947de7291425c5e38a82` (`d8ae75d`)  
-**Content reviewed:** `523a8a550f4ce972585665b5684fc8db217ce75e` (`523a8a5`)  
+**Content reviewed (copy):** `523a8a550f4ce972585665b5684fc8db217ce75e` (`523a8a5`)  
+**Preview re-shot + nav CSS fix:** `a751763b949c520d58068b20f72350d92f73aca1` (`a751763`)
 **Live vs main (step A):** All seven pages matched `origin/main` at build start.
 
 This file and the PNGs beside it are internal review material. They are not part of the public site.
@@ -28,7 +29,7 @@ So these locations would go public after merge:
 cd /agent/repos/janus-site && python3 -m http.server 8080
 ```
 
-Screenshots below are full-page PNGs of that server at content `523a8a5`. Pixel width is the viewport width (375, 768, or 1280). `blog.html` did not change in slice 1 and is not shot.
+Full-page PNGs (`{page}_{width}.png`) and nav chrome PNGs (`{page}_{width}_header.png`, `{page}_{width}_footer.png`, and at width ≤768 `{page}_{width}_menu_open.png` after opening the hamburger) were captured from `python3 -m http.server 8080`. Pixel width is the viewport width (375, 768, or 1280). At 1280px the primary nav links are inline (no hamburger). `blog.html` did not change in slice 1 and is not shot.
 
 ## Screenshots
 
@@ -59,6 +60,25 @@ Screenshots below are full-page PNGs of that server at content `523a8a5`. Pixel 
 | technical.html | 768 | [technical_768.png](technical_768.png) |
 | technical.html | 1280 | [technical_1280.png](technical_1280.png) |
 
+### Nav chrome (example: home)
+
+| View | Width | Header | Open menu | Footer |
+|------|------:|--------|-----------|--------|
+| index.html | 375 | [index_375_header.png](index_375_header.png) | [index_375_menu_open.png](index_375_menu_open.png) | [index_375_footer.png](index_375_footer.png) |
+| index.html | 768 | [index_768_header.png](index_768_header.png) | [index_768_menu_open.png](index_768_menu_open.png) | [index_768_footer.png](index_768_footer.png) |
+| index.html | 1280 | [index_1280_header.png](index_1280_header.png) | — | [index_1280_footer.png](index_1280_footer.png) |
+
+Same suffix pattern for `about`, `company`, `contact`, `contact_sent1`, `product`, `roadmap`, and `technical` beside the full-page files above.
+
+## Outside-users copy (whole repo)
+
+Confirmed removed — no remaining matches:
+
+```text
+$ rg -i 'There are no outside users yet' /agent/repos/janus-site
+(exit 1, no files matched)
+```
+
 ## Automated checks (local)
 
 Checked the seven pages plus `blog.html` where noted. Contact address text is omitted from this file. The HTML still contains the single site mailto.
@@ -79,10 +99,11 @@ Checked the seven pages plus `blog.html` where noted. Contact address text is om
 | Empty required fields do not submit (`checkValidity` is false; the submit event does not fire) | Pass |
 | `/contact.html?sent=1` shows "Message sent." and the thanks line; the form is hidden | Pass |
 | Outside-users copy in `*.html` | Pass (none) |
-| Header link DOM click reaches product, technical, company, roadmap, about, and contact, each with a nav and a footer | Pass |
+| Header link DOM: product, technical, company, roadmap, about, and contact in top nav and footer | Pass |
+| Footer `nav.footer-nav` not `position: fixed` (computed style) | Pass |
 | Form POST during preview | Not performed |
 
-Rendering note, unchanged from base `d8ae75d`: the stylesheet rule `nav { position: fixed; top: 0; }` also matches `<nav class="footer-nav">`. The footer nav paints over the header, so the top bar in these screenshots is the footer link row, the header brand is covered, and that link row is not in the footer. A coordinate click on the header hits that overlay. The mobile menu button stays under it, so opening the hamburger did not reveal `.nav-links`.
+**Nav CSS (fixed):** Scoped fixed positioning to the top bar only: `body > nav { … }` in `style.css` (including the mobile padding rule) and `body>nav{…}` in `product.html` inline CSS. The bare `nav { position: fixed }` selector also matched `<nav class="footer-nav">`, which painted over the header and blocked the hamburger. Re-shot PNGs show the header brand, an open `.nav-links` panel at ≤768px, and footer links at the bottom of the page.
 
 ## Exact changed lines
 
@@ -212,12 +233,30 @@ Deleted, with no replacement line: the same regulated-industries hero paragraph 
 
 ### style.css (shared)
 
+Slice 1 (prior):
+
 ```
 1386: .footer-l a {
 1387:   color: var(--accent);
 1388:   text-decoration: underline;
 1389:   text-underline-offset: 2px;
 1390: }
+```
+
+Nav positioning fix on this branch (`body > nav` scopes fixed layout to the header; footer stays in flow):
+
+```
+56: body > nav {
+57:   position: fixed;
+...
+1551:   body > nav {
+1552:     padding: 0 20px;
+```
+
+### product.html (inline CSS duplicate)
+
+```
+38: body>nav{position:fixed;...}
 ```
 
 ## Flag for Jesse
