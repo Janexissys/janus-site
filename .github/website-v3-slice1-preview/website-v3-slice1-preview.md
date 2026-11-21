@@ -4,7 +4,7 @@
 **Base:** `d8ae75da24cff1f7c4ad947de7291425c5e38a82` (`d8ae75d`)  
 **Content reviewed (copy):** `523a8a550f4ce972585665b5684fc8db217ce75e` (`523a8a5`)  
 **Preview re-shot + nav CSS fix:** `63061a6db1e5bf000841f571a2b9773d8b26293d` (`63061a6`)  
-**Footer wrap + solid mobile menu panel:** `9abf3345dd912a524d08d75468c57421b7a05cd1` (`9abf334`)
+**Footer wrap + solid mobile menu panel:** `cbd8587d3a356592c7f043f0d66229af0ebb1c4d` (`cbd8587`)
 **Live vs main (step A):** All seven pages matched `origin/main` at build start.
 
 This file and the PNGs beside it are internal review material. They are not part of the public site.
