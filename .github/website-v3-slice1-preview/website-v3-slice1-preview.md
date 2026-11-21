@@ -3,7 +3,8 @@
 **Branch:** `cursor/website-v3-slice1-7348`  
 **Base:** `d8ae75da24cff1f7c4ad947de7291425c5e38a82` (`d8ae75d`)  
 **Content reviewed (copy):** `523a8a550f4ce972585665b5684fc8db217ce75e` (`523a8a5`)  
-**Preview re-shot + nav CSS fix:** `63061a6db1e5bf000841f571a2b9773d8b26293d` (`63061a6`)
+**Preview re-shot + nav CSS fix:** `63061a6db1e5bf000841f571a2b9773d8b26293d` (`63061a6`)  
+**Footer wrap + solid mobile menu panel:** `9abf3345dd912a524d08d75468c57421b7a05cd1` (`9abf334`)
 **Live vs main (step A):** All seven pages matched `origin/main` at build start.
 
 This file and the PNGs beside it are internal review material. They are not part of the public site.
@@ -101,9 +102,13 @@ Checked the seven pages plus `blog.html` where noted. Contact address text is om
 | Outside-users copy in `*.html` | Pass (none) |
 | Header link DOM: product, technical, company, roadmap, about, and contact in top nav and footer | Pass |
 | Footer `nav.footer-nav` not `position: fixed` (computed style) | Pass |
+| Footer links visible and not clipped at 375px and 768px viewports | Pass |
+| Open mobile menu panel uses solid site background (`var(--bg)`) | Pass |
 | Form POST during preview | Not performed |
 
 **Nav CSS (fixed):** Scoped fixed positioning to the top bar only: `body > nav { … }` in `style.css` (including the mobile padding rule) and `body>nav{…}` in `product.html` inline CSS. The bare `nav { position: fixed }` selector also matched `<nav class="footer-nav">`, which painted over the header and blocked the hamburger. Re-shot PNGs show the header brand, an open `.nav-links` panel at ≤768px, and footer links at the bottom of the page.
+
+**Footer / mobile menu (this amend):** `style.css` — `.footer-nav` uses `flex-wrap` (with mobile `width: 100%` and centered wrap); `.nav-links` in the ≤768px rule uses opaque `background: var(--bg)` instead of translucent rgba so page copy does not show through the open panel. All seven pages plus `contact.html?sent=1` preview PNGs were re-shot at 375, 768, and 1280.
 
 ## Exact changed lines
 
