@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Talk to the DTM team about governing your AI workflows - book a conversation or reach us directly.">
+  <meta name="description" content="Contact DTM about Janus OS, consulting, partnership or research. You don't need a finished plan to start a conversation.">
   <link rel="canonical" href="https://dtm-system.com/contact.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact - DTM">
-  <meta property="og:description" content="Talk to the DTM team about governing your AI workflows - book a conversation or reach us directly.">
+  <meta property="og:description" content="Contact DTM about Janus OS, consulting, partnership or research. You don't need a finished plan to start a conversation.">
   <meta property="og:url" content="https://dtm-system.com/contact.html">
   <meta property="og:image" content="https://dtm-system.com/assets/vector-fastlane-badge.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact - DTM">
-  <meta name="twitter:description" content="Talk to the DTM team about governing your AI workflows - book a conversation or reach us directly.">
+  <meta name="twitter:description" content="Contact DTM about Janus OS, consulting, partnership or research. You don't need a finished plan to start a conversation.">
   <meta name="twitter:image" content="https://dtm-system.com/assets/vector-fastlane-badge.png">
   <title>Contact - DTM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +27,10 @@
     <a href="index.html" class="nav-left"><strong>DTM</strong> - Dynamic Trajectory Memory</a>
     <ul class="nav-links">
       <li><a href="product.html">Product</a></li>
-      <li><a href="technical.html">Technical</a></li>
+      <li><a href="consulting.html">Consulting</a></li>
       <li><a href="company.html">Company</a></li>
       <li><a href="roadmap.html">Roadmap</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-link--active">Contact</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
       <li><a href="https://blog.dtm-system.com" target="_blank" rel="noopener">Blog</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -43,9 +42,9 @@
 
     <section class="subpage-hero">
       <div class="wrap">
-        <p class="eyebrow">Contact</p>
-        <h1>Let&rsquo;s talk about what you&rsquo;re trying to automate.</h1>
-        <p class="hero-sub">A short conversation about your workflows, your gates, and whether private beta is a fit. No sales deck required.</p>
+        <p class="eyebrow">Contact DTM</p>
+        <h1>Let's talk about <em>what you're working on.</em></h1>
+        <p class="hero-sub">Interested in Janus OS, looking for help with a business problem, exploring consulting, or simply want to make contact? Tell us a little about what's on your mind. You don't need a finished plan to start a conversation.</p>
       </div>
     </section>
 
@@ -54,35 +53,37 @@
 
         <form class="contact-form" action="https://formspree.io/f/mvzewjgq" method="POST">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Name (required)</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email (required)</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
           </div>
           <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company">
+            <label for="organization">Organization (optional)</label>
+            <input type="text" id="organization" name="organization" autocomplete="organization">
           </div>
           <div class="form-group">
-            <label for="message">What are you trying to automate?</label>
+            <label for="message">Your message (required)</label>
             <textarea id="message" name="message" required></textarea>
           </div>
 
-          <input type="hidden" name="_subject" value="DTM / Janus conversation">
+          <input type="hidden" name="_subject" value="DTM website message">
+          <input type="hidden" name="topic" value="general">
           <input type="hidden" name="_next" value="https://dtm-system.com/contact.html?sent=1">
-          <input type="text" name="_gotcha" style="display:none">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="form-actions">
-            <button type="submit" class="btn-primary">Talk to us</button>
-            <p class="form-note">Prefer email? Write to <a href="mailto:jessebinstock@dtm-systems.com">jessebinstock@dtm-systems.com</a>.</p>
+            <button type="submit" class="btn-primary">Send message</button>
+            <p class="form-note">Please avoid including sensitive personal information or confidential documents in your first message.</p>
+            <p class="form-note">Prefer email? You can reach us directly at <a href="mailto:jessebinstock@dtm-systems.com">jessebinstock@dtm-systems.com</a>.</p>
           </div>
         </form>
 
-        <div class="contact-success">
+        <div class="contact-success" role="status">
           <p class="contact-success-title">Message sent.</p>
-          <p class="contact-success-body">Thanks for reaching out - we&rsquo;ll get back to you shortly. If it&rsquo;s urgent, email <a href="mailto:jessebinstock@dtm-systems.com">jessebinstock@dtm-systems.com</a> directly.</p>
+          <p class="contact-success-body">Thanks for reaching out. We'll get back to you shortly. If it's urgent, email <a href="mailto:jessebinstock@dtm-systems.com">jessebinstock@dtm-systems.com</a> directly.</p>
         </div>
 
       </div>
@@ -94,11 +95,11 @@
     <div class="footer-l">DTM - Dynamic Trajectory Memory Inc.<br><span>1 Rideau Street, Suite 700 &middot; Ottawa, ON</span></div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="product.html">Product</a>
-      <a href="technical.html">Technical</a>
+      <a href="consulting.html">Consulting</a>
       <a href="company.html">Company</a>
       <a href="roadmap.html">Roadmap</a>
-      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="technical.html">Technical notes</a>
       <a href="https://blog.dtm-system.com" target="_blank" rel="noopener">Blog</a>
     </nav>
     <div class="footer-supporters">
@@ -136,9 +137,13 @@
   <script>
     (function() {
       var params = new URLSearchParams(window.location.search);
-      var subjectField = document.querySelector('input[name="_subject"]');
-      if (params.get('ref') === 'technical' && subjectField) {
-        subjectField.value = 'Technical review request';
+      var ref = params.get('ref') || '';
+      var subjects = {beta: 'Private beta interest', consulting: 'Consulting enquiry', technical: 'Technical review request'};
+      if (subjects[ref]) {
+        var s = document.querySelector('input[name="_subject"]');
+        var t = document.querySelector('input[name="topic"]');
+        if (s) s.value = subjects[ref];
+        if (t) t.value = ref;
       }
       if (params.get('sent') === '1') {
         document.body.classList.add('contact-sent');

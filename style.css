@@ -1959,3 +1959,18 @@ body.contact-sent .contact-success { display: block; }
     gap: 14px;
   }
 }
+
+/* Footer nav is a <nav> element: undo the fixed site-header styles so it
+   stays in the footer instead of covering the top navigation. */
+nav.footer-nav {
+  position: static;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: auto;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
